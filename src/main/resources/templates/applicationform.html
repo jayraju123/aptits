@@ -1,0 +1,247 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<!-- Add Bootstrap CSS link -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-fA5z5j5P6b6K5u5m5M6d6d5Sr5c5f5g5i5u5r5a5R5V5O5i5s5k5f5K5f5w5P5C5N5E5T5T5Z5f5s5/5.5l5l5z5X5H5V5h5A5f5s5W5w5j5r5V5a5E5/" crossorigin="anonymous">
+
+<!-- Add Bootstrap JS and Popper.js scripts (order matters) -->
+<script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+16z4F2xlKYMHPf/1Tl+J/PU6z3c5p5O0O5Zw5f5O5t5r5I5p5w5E5X5f5l5I5l5B5t5T5P5C5N5E5T5T5Z5f5s5/5.6D5r5B5v5U5d5g5l5F5g5z5v5U5d5o5E5I5w5=="
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@2.11.6/dist/umd/popper.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+16z4F2xlKYMHPf/1Tl+J/PU6z3c5p5O0O5Zw5f5O5t5r5I5p5w5E5X5f5l5I5l5B5t5T5P5C5N5E5T5T5Z5f5s5/2.11.6"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+16z4F2xlKYMHPf/1Tl+J/PU6z3c5p5O0O5Zw5f5O5t5r5I5p5w5E5X5f5l5I5l5B5t5T5P5C5N5E5T5T5Z5f5s5/4.6.0"
+        crossorigin="anonymous"></script>
+
+</head>
+<style>
+*{
+    padding: o;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family:  sans-serif;
+    background-color: white;
+    padding-top: 20px;
+  }
+h1{
+    padding-top: 10px;
+     text-align: center;
+}
+ h2{
+ 	margin: 20px;
+ 	text-align: center;
+ 	border-bottom: 1px solid #ddd;
+ }
+  form {
+    width: 50%;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    margin-bottom: 50px;
+    padding-bottom: 70px;
+  }
+  
+  input[type="text"], input[type="email"], input[type="text"],input[type="mobile"],input[type="date"]{
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 8px;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 15px;
+    border: none;
+    background-color: #EAE7E6;
+    outline: none;
+  }
+  
+  input[type="submit"] {
+    background-color: rgb(15, 66, 88);
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    float: right;
+  }
+  
+  label {
+    font-weight:600px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+.error-message{
+  color:red;
+  }
+  
+  
+   .modal-content {
+        background-color: #f8f9fa;
+    }
+
+    .modal-header {
+        background-color: #007bff;
+        color: #fff;
+    }
+
+    .modal-title {
+        color: #fff;
+    }
+
+    .modal-footer {
+        justify-content: flex-end;
+    }
+
+    /* Center the modal vertically and horizontally */
+    .modal-dialog {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 50px;
+    }
+
+    /* Optional: Add some padding to the modal body */
+    .modal-body {
+        padding: 20px;
+    }
+  
+</style>
+<body>
+
+    <form action="/jobapplication/job-applications" method="POST" enctype="multipart/form-data" onsubmit="submitForm(event)">
+    <h2>Fill In All The Details</h2>
+    <label for="name">Name:<span style="color: red;">*</span></label>
+    <input type="text" id="name" name="name" placeholder="Your Name" required>
+    <span class="error-message" id="name-error"></span>
+
+    <label for="email">Email:<span style="color: red;">*</span></label>
+    <input type="email" id="email" name="email" placeholder="Your Email" required>
+    <span class="error-message" id="email-error"></span>
+
+    <label for="mobile">Mobile Number:<span style="color: red;">*</span></label>
+    <input type="text" id="mobile" name="mobile" maxlength="10" minlength="10" placeholder="Your Mobile Number" required>
+    <span class="error-message" id="mobile-error"></span>
+
+    <label for="fathername">Father Name:</label>
+    <input type="text" id="fathername" name="fatherName" placeholder="Father's Name">
+    <span class="error-message" id="fathername-error"></span>
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dateOfBirth" placeholder="Your Date of Birth">
+    <span class="error-message" id="dob-error"></span>
+
+    <label for="TotalExp">Total Experience:</label>
+    <input type="text" id="TotalExp" name="totalExperience" placeholder="Total Experience">
+    <span class="error-message" id="TotalExp-error"></span>
+
+    <label for="RelativeExp">Relevant Experience:</label>
+    <input type="text" id="RelevantExp" name="relevantExperience" placeholder="Relevant Experience">
+    <span class="error-message" id="RelevantExp-error"></span>
+
+    <label for="keySkills">Key Skills:</label>
+    <input type="text" id="keySkills" name="keySkills" placeholder="Java,Python,.Net">
+    <span class="error-message" id="keySkills-error"></span>
+
+    <label for="Strengths">Strengths:</label>
+    <input type="text" id="Strengths" name="strengths" placeholder="Strengths">
+    <span class="error-message" id="Strengths-error"></span>
+
+    <label for="Designation">Present Designation:</label>
+    <input type="text" id="Designation" name="presentDesignation" placeholder="Developer/Testing/sales/Marketing/">
+    <span class="error-message" id="Designation-error"></span>
+
+    <label for="CompanyAddress">Company Address:</label>
+    <input type="text" id="CompanyAddress" name="companyAddress" placeholder="Address">
+    <span class="error-message" id="CompanyAddress-error"></span>
+
+    <label for="PresentCTC">Present CTC:</label>
+    <input type="text" id="PresentCTC" name="presentCTC" placeholder="₹">
+    <span class="error-message" id="PresentCTC-error"></span>
+
+    <label for="ExpectedCTC">Expected CTC:</label>
+    <input type="text" id="ExpectedCTC" name="expectedCTC" placeholder="₹">
+    <span class="error-message" id="ExpectedCTC-error"></span>
+
+    <label for="NoticePeriod">Notice Period:</label>
+    <input type="text" id="NoticePeriod" name="noticePeriod" placeholder="Months/Days">
+    <span class="error-message" id="NoticePeriod-error"></span>
+
+    <label for="resume">Upload Resume:<span style="color: red;">*</span></label>
+    <input type="file" id="resume" name="resume" required><br><br>
+    <span class="error-message" id="resume-error"></span>
+
+    <input type="submit" value="Submit">
+</form>
+
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="successModalLabel">Success</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Form submitted successfully!
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+      <script>
+        function submitForm(event) {
+            event.preventDefault(); // Prevent the form from submitting normally
+
+            // Reset previous error messages
+            const errorElements = document.querySelectorAll('.error-message');
+            errorElements.forEach(errorElement => {
+                errorElement.textContent = '';
+            });
+
+            // Validate form fields (you can add your validation logic here)
+
+            // If the form is not valid, return early
+            // For example, if (!isValid) return;
+
+            // Make an AJAX request to submit the form data
+            const form = event.target;
+            const formData = new FormData(form);
+
+            fetch(form.action, {
+                method: form.method,
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Show the Bootstrap modal
+                    $('#successModal').modal('show');
+                       $('#successModal').on('hidden.bs.modal', function () {
+                    form.reset(); // Reset the form when the modal is hidden
+                });
+                    
+                } else {
+                    // Handle failure as needed
+                }
+            })
+            .catch(error => {
+                console.error('An error occurred while submitting the form:', error);
+            });
+        }
+    </script>
+
+
+        <!--FORM DATA TO GMAIL-->
+
+      </body>
+      </html>

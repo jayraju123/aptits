@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Admin Panel</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/admin.css}">
+
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+		integrity="sha384-gpW10q5onfnKF4tnT3mzbp6j1z6Aj9lD8JF6tQ5Ib2F5mw6TQu3yzsIFCR4Olv1oC" crossorigin="anonymous">
+
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+		crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.js"></script>
+
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+	<script th:src="@{/js/admin.js}" defer></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+	<script>
+		function closeAddCareersModal() {
+			$('#addCareersModalButton').modal('hide');
+		}
+	</script>
+
+	<style>
+		.tabcontent {
+			width: 80%;
+			margin: 0 auto;
+			margin-top: 20px;
+			/* Add margin at the top */
+			margin-bottom: 20px;
+			/* Add margin at the bottom */
+			margin-left: 20px;
+			/* Add margin to the left */
+			margin-right: 20px;
+			/* Add margin to the right */
+			padding: 20px;
+			/* Add padding to all sides */
+		}
+
+
+		input[type="text"].int {
+			width: 300px;
+			/* Adjust the width as needed */
+			height: 40px;
+			/* Adjust the height as needed */
+		}
+
+		#tab5.tabcontent,
+		#tab6.tabcontent,
+		#tab4.tabcontent {
+			width: 80%;
+			margin: 0 auto;
+			margin-top: 20px;
+			margin-bottom: 20px;
+			margin-left: 20px;
+			margin-right: 20px;
+			padding: 20px;
+		}
+
+		.input-row {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: 10px;
+		}
+
+		.input-row .input-box {
+			flex-basis: 48%;
+			/* Adjust the width as needed */
+		}
+
+		.input-box label {
+			display: block;
+		}
+
+		.input-box input[type="text"],
+		.input-box select {
+			width: 100%;
+			padding: 5px;
+			border: 1px solid #ccc;
+			border-radius: 4px;
+		}
+
+		/* Clear the flex layout for the last input row */
+		.input-row:last-child {
+			margin-bottom: 0;
+		}
+
+		#tab8 {
+			width: 200px;
+			margin: auto
+		}
+
+
+		/* CSS for buttons */
+		.update-button,
+		.delete-button {
+			 display: inline-block;
+			/* Display buttons inline */
+			margin-right: 10px;
+			/* Add spacing between buttons */
+			background-color: #007bff;
+			color: white;
+			border: none;
+			padding: 8px 8px;
+			cursor: pointer;
+			border-radius: 3px;
+
+		}
+
+		/* Style for the "Update" button */
+		.update-button {
+			background-color: #007bff;
+			margin-bottom:6px;
+		}
+
+		/* Style for the "Delete" button */
+		.delete-button {
+			background-color: #ff0000;
+		}
+	</style>
+</head>
+
+
+<body>
+
+
+	<div class="container-fluid admin">
+		<div class="row " style="display: flex; position: sticky;">
+
+
+			<!-- SideBar -->
+
+
+			<nav class="col-sm-3 block sidebar" style="background-color:#f44336; width: 230px;">
+
+				<ul class="nav flex-column" style="position: fixed; margin-top: 100px">
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn" onclick="openTab('tab1')">News & Events</button>
+					</li>
+
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn" onclick="openTab('tab2')">Careers</button>
+					</li>
+
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn" onclick="openTab('tab3')">Gallery</button>
+					</li>
+
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn" onclick="openTab('tab4')">Job
+							Applications</button>
+					</li>
+
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn" onclick="openTab('tab5')">Scroll News</button>
+					</li>
+
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn" onclick="openTab('tab6')">Contact Us</button>
+					</li>
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn" onclick="openTab('tab7')">Download-File</button>
+					</li>
+
+					<li class="nav-item">
+						<button class="nav-link tablink white-text-btn"
+							onclick="openTab('tab8')">RecieverEmails</button>
+					</li>
+				</ul>
+			</nav>
+
+
+
+			<div class="col-sm-12 heading">
+				<div class="logo">
+					<img src="images/aptlogo.jpg" alt="Your Logo" style="width: 130px; height:
+         70px;margin-right: 1350px;margin-bottom: -60px; border-radius: 5px;">
+				</div>
+				<h1
+					style="color: rgb(255, 255, 255); font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; margin-top: -30px;">
+					AdminPortal</h1>
+
+				<div class="logout" style="margin-top: -10px;">
+					<!-- Add SweetAlert to the logout button -->
+					<button type="button" class="btn" id="logoutButton">Logout</button>
+				</div>
+			</div>
+
+
+
+
+			<div class="container-fluid admin">
+
+				<div class="container-fluid" style="margin-top: 100px;">
+					<div class="row" style="position: sticky; margin-top: 100px;">
+
+					</div>
+				</div>
+
+				<!-- Main content area -->
+
+				<div class="col-sm-9 content">
+					<!-- Your content here -->
+				</div>
+			</div>
+
+
+
+
+			<div class="col-sm-8">
+				<div id="tab1" class="tabcontent">
+					<div class="row">
+
+						<div class="panel-body fixed">
+							<div class="searchadd fixed-search">
+								<input type="text" id="searchInput" placeholder="Search for news..."
+									onkeyup="searchFunction()" style="padding-right: 40px; margin-left: 60px;">
+								<div class="col-sm-2">
+									<button class="btn btn-primary" onclick="openNewsModal()">AddNew</button>
+								</div>
+							</div>
+							<br>
+
+							<div class="panel panel-default" style="padding-top: 100px; margin-right: 400px">
+								<table id="tbl-news"
+									class="table table-responsive table-bordered table-hover scrollable-table">
+									<thead class="thead-light">
+										<tr>
+											<th>S.No</th>
+											<th>NEWS DATE</th>
+											<th>News and Events</th>
+											<th>Image</th>
+											<th>ACTION</th>
+										</tr>
+									</thead>
+									<tbody id="dataContainer1">
+										<!-- Data will be dynamically inserted here -->
+									</tbody>
+								</table>
+							</div>
+							<!-- Pagination controls -->
+							<div id="news-pagination-container" class="pagination"></div>
+						</div>
+
+
+
+						<div class="modal model-editnews" id="editNewsModal">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">Edit Form</h5>
+									<label class="close" for="modalToggle" onclick="closeModal()">&times;</label>
+								</div>
+								<div class="modal-body">
+									<!-- Your Form Goes Here -->
+									<form action="" method="POST" id="editnewsForm" onsubmit="submitForm(event)"
+										enctype="multipart/form-data">
+										<input type="hidden" name="_method" value="PUT" /> <input type="hidden"
+											name="id" value="" />
+										<table>
+											<tr>
+												<td><label for="NewsEvents">NewsEvents:</label> <textarea type="text"
+														name="newsEvent" id="editTextarea"></textarea></td>
+											</tr>
+											<!-- Add file input for image -->
+											<tr>
+												<td><label for="imageFile">Image:</label> <input type="file"
+														name="imageFile" accept="image/*" /></td>
+											</tr>
+											<tr>
+												<td colspan="2"><input type="submit" value="Submit" id="submit"
+														class="btn btn-primary" /></td>
+											</tr>
+										</table>
+									</form>
+								</div>
+							</div>
+						</div>
+
+
+
+
+						<div class="modal" id="addNewsModalButton">
+							<div class="modal-content">
+								<div class="modal-header">
+									<h5 class="modal-title">News & Events</h5>
+									<label class="close" onclick="closeAddNewsModal()">&times;</label>
+								</div>
+								<div class="modal-body">
+									<form action="/api/save" method="POST" enctype="multipart/form-data"
+										onsubmit="Form(event)">
+										<input type="hidden" name="_method">
+										<div class="user-details with-background">
+											<!-- Added a new class for background color -->
+											<div class="input-box">
+												<label class="details">Date :</label> <input type="date" name="date"
+													id="date" required>
+											</div>
+											<br>
+											<div class="input-box">
+												<label class="details">News & Events :</label>
+												<textarea name="newsEvent" id="newsEvent"></textarea>
+											</div>
+											<br>
+											<!-- File input for uploading an image -->
+											<div class="input-box">
+												<label class="details">Image :</label> <input type="file"
+													name="imageFile">
+											</div>
+										</div>
+										<input type="submit" id="submit" value="Submit" name="submit"
+											class="btn btn-info">
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+
+			<div class="container" style="width: 400px; color: black; margin: auto; margin-left: 300px;">
+				<div id="tab8" class="tabcontent" style="text-align: center;">
+					<form action="/reciever-emails/save" method="post" style="display: flex; align-items: center;">
+						<label for="email">Email:</label>
+						<input type="text" id="email" name="email" required class="int">
+						<button type="button" onclick="saveEmail(event)"
+							style="background-color:#007bff; color: white; margin-left: 10px;">ChangeEmail</button>
+					</form>
+					<!-- Update Email form initially hidden -->
+					<div id="updateEmailForm" style="display: none; align-items: center;">
+						<label for="updateEmailInput">New Email:</label>
+						<input type="text" id="updateEmailInput" name="updateEmailInput" required class="int">
+						<button type="button" onclick="saveUpdatedEmail()" style="background-color:#007bff; color:
+     white; margin-left: 10px;">UpdateEmail</button>
+					</div>
+			<div class="panel panel-default" style="padding-top: 20px; margin-right:400px;">
+						<table id="emailTable"
+							class="table table-responsive table-bordered table-hover scrollable-table"
+							style="width:500px">
+							<thead class="thead-light">
+								<tr>
+									<th style="width: 30%;">S.No</th>
+									<th style="width: 90%;">Email Address</th>
+									<th style="width: 30%;">Action</th>
+								</tr>
+							</thead>
+							<tbody id="emailTableBody">
+								<!-- Data will be dynamically inserted here -->
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+
+			<div id="successPopup" class="popup" style="display: none;">
+				Email changed successfully.
+			</div>
+
+			<script>
+
+				var currentEmailId; // Global variable to store the ID of the email being updated
+
+				// Function to save the email
+				function saveEmail(event) {
+					event.preventDefault(); // Prevent the default form submission behavior
+
+					var emailInput = document.getElementById("email").value;
+
+					if (!emailInput) {
+						console.error("Email field is empty.");
+						return;
+					}
+
+					var data = {
+						"email": emailInput
+					};
+
+					fetch('/reciever-emails/save', {
+						method: 'POST',
+						headers: {
+							'Content-Type': 'application/json'
+						},
+						body: JSON.stringify(data)
+					})
+						.then(response => {
+							if (response.status === 200) {
+								console.log("Email saved successfully");
+								addEmailRow(data); // Add the new email to the table
+								document.getElementById("email").value = ''; // Clear the input field
+								showSuccessAlert("Email saved successfully"); // Display success alert
+							} else {
+								response.text().then(errorMessage => {
+									console.error("Failed to save email. Error message:", errorMessage);
+								});
+							}
+						})
+						.catch(error => {
+							console.error("Error:", error);
+						});
+				}
+
+	function showSuccessSweetAlert(message) {
+					Swal.fire({
+						icon: 'success',
+						title: 'Success',
+						text: message,
+					});
+				}
+		
+		
+	
+	
+		
+// Function to save the updated email
+function saveUpdatedEmail() {
+    var newEmail = document.getElementById("updateEmailInput").value;
+
+    if (!newEmail) {
+        console.error("New email field is empty.");
+        return;
+    }
+
+    if (currentEmailId === undefined || isNaN(currentEmailId)) {
+        console.error("Invalid email ID.");
+        return;
+    }
+
+    var data = {
+        "email": newEmail
+    };
+
+    fetch('/reciever-emails/' + currentEmailId, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    })
+        .then(response => {
+            if (response.status === 200) {
+                console.log("Email updated successfully");
+                var emailCell = document.querySelector('#emailTableBody tr:nth-child(' + currentEmailId + ') td:nth-child(1)');
+
+                // Check if emailCell exists before updating innerHTML
+                if (emailCell) {
+                    emailCell.innerHTML = newEmail;
+                }
+
+                document.getElementById("updateEmailInput").value = ''; // Clear the input field
+                currentEmailId = undefined;
+                toggleUpdateForm();
+                showSuccessAlert("Email updated successfully"); // Display success alert
+
+                // Display a SweetAlert with the success message
+                showSuccessSweetAlert("Email updated successfully");
+            } else {
+                response.text().then(errorMessage => {
+                    console.error("Failed to update email. Error message:", errorMessage);
+                });
+            }
+        })
+        .catch(error => {
+            console.error("Error:", error);
+        });
+}
+
+
+// Function to display a success alert with SweetAlert
+function showSuccessAlert(message) {
+    Swal.fire({
+        icon: 'success',
+        title: 'Success',
+        text: message,
+    });
+}
+
+// Function to toggle the display of the update email form
+function toggleUpdateForm() {
+    var updateEmailForm = document.getElementById("updateEmailForm");
+    var emailForm = document.querySelector("form");
+
+    if (updateEmailForm.style.display === "none") {
+        updateEmailForm.style.display = "flex";
+        emailForm.style.display = "none";
+    } else {
+        updateEmailForm.style.display = "none";
+        emailForm.style.display = "flex";
+    }
+}
+
+// Function to add a new row to the table
+function addEmailRow(email) {
+    var tableBody = document.getElementById("emailTableBody");
+    var rowCount = tableBody.rows.length;
+
+    var newRow = tableBody.insertRow(rowCount);
+    newRow.insertCell(0).innerHTML = rowCount + 1; // S.No
+    newRow.insertCell(1).innerHTML = email.email; // Email Address
+    newRow.insertCell(2).innerHTML = '<button class="update-button" onclick="updateEmail(' + email.id + ', \'' + email.email + '\')">Update</button> <button class="delete-button" onclick="deleteEmail(' + email.id + ')">Delete</button>';
+}
+
+
+
+
+// Function to delete an email
+function deleteEmail(id) {
+    if (id === undefined || isNaN(id)) {
+        console.error("Invalid email ID.");
+        return;
+    }
+
+    // Show a confirmation dialog before proceeding with deletion
+    Swal.fire({
+        title: 'Delete Email?',
+        text: 'Are you sure you want to delete this email?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, delete it!',
+        cancelButtonText: 'No, cancel',
+        reverseButtons: true,
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // User confirmed, proceed with email deletion
+            fetch('/reciever-emails/' + id, {
+                method: 'DELETE'
+            })
+                .then(response => {
+                    if (response.status === 204) {
+                        console.log("Email deleted successfully");
+                       showErrorSweetAlert("Failed to delete email. Error message: " + errorMessage);
+                    } else {
+                        response.text().then(errorMessage => {
+                            console.error("Failed to delete email. Error message:", errorMessage);
+                            // Display an error SweetAlert with the server's error message
+                           
+                             showSuccessSweetAlert("Email deleted successfully"); // Display success SweetAlert
+                        });
+                    }
+                })
+                .catch(error => {
+                    console.error("Error deleting email:", error);
+                    // Display an error SweetAlert with the client-side error message
+                    showErrorSweetAlert("Error deleting email: " + error.message);
+                });
+        }
+    });
+}
+
+// Function to display an error alert with SweetAlert
+function showErrorSweetAlert(message) {
+    Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: message,
+    });
+}
+
+
+				// Function to update an email
+				function updateEmail(id, currentEmail) {
+					var emailInput = document.getElementById("updateEmailInput");
+					var updateEmailForm = document.getElementById("updateEmailForm");
+
+					if (id && !isNaN(id)) {
+						// Set the input field with the current email
+						emailInput.value = currentEmail;
+						// Store the ID of the email being updated
+						currentEmailId = id;
+						// Show the update email form and hide the email form
+						updateEmailForm.style.display = "flex"; // Show the form
+					} else {
+						console.error("Invalid email ID");
+					}
+				}
+
+				// Function to display the success popup with a message
+				function showSuccessPopup(message) {
+					var successPopup = document.getElementById("successPopup");
+					successPopup.textContent = message;
+					successPopup.style.display = "block"; // Show the popup
+					// Automatically hide the popup after 2 seconds (2000 milliseconds)
+					setTimeout(function () {
+						successPopup.style.display = "none";
+					}, 2000);
+				}
+
+				// Function to fetch and populate existing data
+				function fetchAndPopulateData() {
+					fetch('/reciever-emails/')
+						.then(response => response.json())
+						.then(data => {
+							data.forEach(email => {
+								addEmailRow(email);
+							});
+						})
+						.catch(error => {
+							console.error("Error fetching data:", error);
+						});
+				}
+
+				// Call the fetchAndPopulateData function when the page loads
+				window.addEventListener('load', fetchAndPopulateData);
+			</script>
+
+		</div>
+
+
+
+
+		<div id="tab2" class="tabcontent">
+			<div class="panel-body ">
+				<div class="row">
+					<div class="col-md-12 fixed">
+						<div class="searchadd">
+							<input type="text" id="searchjob" placeholder="Search for jobs..." onkeyup="searchjob()"
+								style="width: 600px; height: 40px; padding-right: 40px; margin-top: 100px; margin-left: 60px;">
+							<div class="col-sm-2 addnew" style="margin-top: 100px;">
+								<button class="btn btn-primary mb-1 addgal" onclick="openCarrersModal()">AddNew</button>
+							</div>
+
+						</div>
+						<br>
+						<div class="panel-body">
+							<table id="tbl-student" class="table table-responsive table-bordered table-hover"
+								style="margin-left: 0px; width: 500px;">
+								<thead>
+									<tr>
+										<th>S.No</th>
+										<th>Role</th>
+										<th>Education</th>
+										<th>JobTitle</th>
+										<th>KeySkills</th>
+										<th>Experience</th>
+										<th>NumberOfPositions</th>
+										<th>JobDescription</th>
+										<th>Status</th>
+										<th colspan="5">Action</th>
+									</tr>
+								</thead>
+								<tbody id="dataContainer3">
+								</tbody>
+							</table>
+							<div id="pagination-container-careers" class="paginator"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+		<!-- Edit Career Modal -->
+
+		<div class="modal fade" id="editCareerModal" tabindex="-1" aria-labelledby="editCareerModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="editCareerModalLabel">Edit Form</h5>
+						<button type="button" class="close" data-dismiss="modal"
+							onclick="closeCareer()">&times;</button>
+					</div>
+					<div class="modal-body">
+						<form action="" method="POST" id="editCareerForm" onsubmit="submitEditCareersForm(event)">
+							<input type="hidden" name="_method" value="PUT" /> <input type="hidden" name="id"
+								id="editItemId" />
+
+							<div class="input-box">
+								<label class="details">Role:</label> <input type="text" name="role" id="role" required>
+							</div>
+							<div class="input-box">
+								<label class="details">Education:</label> <input type="text" name="education"
+									id="education" required>
+							</div>
+
+							<!-- New Row with Two Input Fields -->
+							<div class="row">
+								<div class="col-md-6">
+									<div class="input-box">
+										<label for="jobTitle">Job Title:</label> <input type="text" name="jobTitle"
+											id="jobTitle">
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="input-box">
+										<label for="keySkills">Key Skills:</label> <input type="text" name="keySkills"
+											id="keySkills">
+									</div>
+								</div>
+							</div>
+							<!-- End of New Row -->
+
+							<div class="input-box">
+								<label for="yearsOfExperience">Year of Experience:</label> <input type="text"
+									name="yearsOfExperience" id="yearsOfExperience">
+							</div>
+							<div class="input-box">
+								<label for="numberOfPositions">Number of Positions:</label> <input type="text"
+									name="numberOfPositions" id="numberOfPositions">
+							</div>
+							<div class="input-box">
+								<label for="jobDescription">Job Description:</label> <input type="text"
+									name="jobDescription" id="jobDescription">
+							</div>
+							<div class="input-box">
+								<label for="status">Status:</label>
+								<select name="status" id="status" required onchange="changeStatusColor()">
+									<option value="true" selected>Active</option>
+									<option value="false">Inactive</option>
+								</select>
+							</div>
+							<div class="input-box">
+								<input type="submit" value="Submit" id="submit" class="btn btn-primary" />
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!-- Your HTML code -->
+
+		<script>
+			function changeStatusColor() {
+				const statusSelect = document.getElementById("status");
+				const statusIndicator = document.getElementById("status-indicator");
+
+				if (statusSelect.value === "true") {
+					statusIndicator.style.backgroundColor = "green";
+				} else if (statusSelect.value === "false") {
+					statusIndicator.style.backgroundColor = "red";
+				}
+			}
+		</script>
+
+
+
+		<div class="modal" id="addCareersModalButton">
+			<div class="modal-content">
+				<div class="modal-header">
+					<label class="close" onclick="closeAddCareersModal()">&times;</label>
+					<h5 class="modal-title">Add Careers</h5>
+					<label class="close" onclick="closeAddCareersModal()">&times;</label>
+				</div>
+				<div class="modal-body">
+					<form action="/apijobdetails/savejob" method="POST" onsubmit="submitaddCareersForm(event)">
+						<div class="user-details">
+							<div class="input-row">
+								<div class="input-box">
+									<label class="details">Role:</label> <input type="text" name="role" id="role"
+										required>
+								</div>
+								<div class="input-box">
+									<label class="details">Education:</label> <input type="text" name="education"
+										id="education" required>
+								</div>
+							</div>
+							<div class="input-row">
+								<div class="input-box">
+									<label class="details">JobTitle :</label> <input type="text" name="jobTitle"
+										id="JobTitle" required>
+								</div>
+								<div class="input-box">
+									<label class="details">Key Skills :</label> <input type="text" name="keySkills"
+										id="keySkills" required>
+								</div>
+							</div>
+							<div class="input-row">
+								<div class="input-box">
+									<label class="details">Year of Experience :</label> <input type="text"
+										name="yearsOfExperience" id="experience" required>
+								</div>
+								<div class="input-box">
+									<label class="details">Number Of Positions :</label> <input type="text"
+										name="numberOfPositions" id="numberOfPositions" required>
+								</div>
+							</div>
+							<div class="input-box">
+								<label class="details">Job Description :</label>
+								<textarea name="jobDescription" id="jobDescription"></textarea>
+							</div>
+							<div class="input-box">
+								<label class="details">Status:</label> <select name="status" id="status" required
+									onchange="changeStatusColor()">
+									<option value="true">Active</option>
+									<option value="false">Inactive</option>
+								</select>
+							</div>
+							<div class="status-indicator" id="status-indicator"></div>
+							<input type="submit" id="submit" value="Submit" name="submit" class="btn btn-info">
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+		<!--Gallery Page-->
+
+
+		<div id="tab3" class="tabcontent">
+			<div class="panel panel-default">
+				<div class="row">
+					<div class="col-md-10 fixed">
+						<div class="searchadd">
+							<input type="text" id="searchBox" placeholder="Search by Gallery Table feilds....."
+								onkeyup="searchImages()"
+								style="width: 600px; height: 40px; padding-right: 40px; margin-top: 100px; margin-left: 60px;">
+
+							<div class="col-sm-2 addnew" style="margin-top: 100px;">
+								<button class="btn btn-primary mb-1 addgal" onclick="saveGallery()">AddNew</button>
+							</div>
+						</div>
+						<br>
+					<div class="panel-body">
+    <table id="tbl-student" class="table table-responsive table-bordered table-hover" style="width: 800px; margin-left: 30px;">
+        <thead class="thead-light">
+            <tr>
+                <th>S.No</th>
+                <th>Title</th>
+                <th>Image</th>
+                <th>Description</th>
+                <th>Link</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="dataContainer2"></tbody>
+    </table>
+    <div id="pagination-controls" class="paginator"></div>
+</div>
+
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+<div class="modal" id="editImageModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Edit Image</h5>
+            <label class="close" for="modalToggle" onclick="closeModalImage()">&times;</label>
+        </div>
+        <div class="modal-body">
+            <form action="" method="POST" enctype="multipart/form-data" id="editimagForm" onsubmit="submitImageForm(event)">
+                <input type="hidden" name="id" value="" /> 
+                <input type="hidden" name="_method" value="PUT" />
+
+                <label class="details">Title:</label> 
+                <input type="text" name="title" id="title" class="title">
+                <br> <br>
+
+                <label class="details">Image:</label> 
+                <input type="file" name="image" id="image" class="image"> 
+                <br> <br>
+
+                <label class="details">Description:</label>
+                <textarea name="description" id="description" class="description"></textarea>
+                <br> <br>
+
+                <!-- New input field for the link -->
+                <label class="details">Link:</label> 
+                <input type="link" name="link" id="link" class="link">
+                <br> <br>
+
+                <input type="submit" value="Submit" class="btn btn-success">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div class="modal" id="addGalleryModalButton">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Add Gallery</h5>
+            <label class="close" onclick="closeAddGalleryModal()">&times;</label>
+        </div>
+        <div class="modal-body">
+            <form action="/imageapi/image" method="POST" enctype="multipart/form-data" onsubmit="submitGalleryForm(event)">
+
+                <label class="details">Title:</label> 
+                <input type="text" name="title">
+                <br> 
+
+                <label class="details">Image:</label> 
+                <input type="file" name="image" multiple="multiple">
+                <br> 
+
+                <label class="details">Description:</label>
+                <textarea name="description"></textarea>
+                <br>
+
+                <!-- New input field for the link -->
+                <label class="details">Link:</label> 
+                <input type="text" name="link">
+                <br>
+
+                <div class="modal-footer">
+                    <input type="submit" value="Submit">
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+	</div>
+	</div>
+	
+
+	<!--Job Application Response Page-->
+
+	<div id="tab4" class="tabcontent">
+		<div class="row">
+			<div class="col-md-12 fixed">
+				<br> <input type="text" id="searchCareersdetails" style="width: 600px; height: 40px;"
+					placeholder="Search for applicationlist" onkeyup="searchCareersdetails()"><br> <br>
+
+				<div class="panel-body">
+					<table class="table table-responsive table-bordered table-hover jobtable"
+						style="width: 800px; margin-left: 10px;">
+						<thead>
+							<tr>
+								<th>S.No</th>
+								<th>Name</th>
+								<th>email</th>
+								<th>phone</th>
+								<th>Date of Birth</th>
+								<th>Relevant Experience</th>
+								<th>View Resume</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody id="dataContainer4">
+
+						</tbody>
+					</table>
+				</div>
+				<div id="careers-pagination-container" class="paginator"></div>
+			</div>
+		</div>
+	</div>
+
+
+
+	<div id="tab5" class="tabcontent">
+		<div class="row">
+			<div class="col-md-12 fixed">
+				<br> <br>
+				<div class="searchadd">
+					<input type="text" id="searchscrollnews" style="width: 600px; height: 40px;"
+						placeholder="Search for scrollnews..." onkeyup="searchscrollnews()">
+					<div class="col-sm-2 addnew">
+						<button class="btn btn-primary scroladd" onclick="addNewScrollNews()">AddNew</button>
+					</div>
+				</div>
+				<br>
+				<div class="panel-body">
+					<table class="table table-responsive table-bordered table-hover"
+						style="width: 33%; margin-left: 18px;">
+						<thead>
+							<tr>
+								<th>S.No</th>
+								<th>ScrollNews</th>
+								<th colspan="2">Action</th>
+							</tr>
+						</thead>
+						<tbody id="dataContainer"></tbody>
+					</table>
+				</div>
+				<div id="scrollnews-pagination-container" class="paginator"></div>
+			</div>
+		</div>
+
+
+
+
+
+		<button type="button" id="editButton">Edit</button>
+<div class="modal fade" id="editScrollNewsModal" tabindex="-1" aria-labelledby="editScrollNewsModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editScrollNewsModalLabel">Edit Form</h5>
+                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <!-- Your form content starts here -->
+                <form id="editForm" method="POST" action="" onsubmit="submitEditScrollForm(event)">
+                    <input type="hidden" name="_method" value="PUT" />
+                    <input type="hidden" name="id" value="" />
+                    <table>
+                        <tr>
+                            <td><label for="scrollNews">ScrollNews:</label></td>
+                            <td><textarea id="scrollNews" name="scrollnews"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2"><input type="submit" value="Submit" class="btn btn-success" /></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+  <div class="modal" id="addscrollModalButton">
+   <div class="modal-content">
+    <div class="modal-header">
+     <h5 class="modal-title">AddScrollNews</h5>
+     <label class="close" onclick="closeAddScrollModal()">&times;</label>
+    </div>
+    <div class="modal-body">
+     <form action="/scrollnews/create" method="post"
+      onsubmit="submitScrollForm(event)">
+      <label>ScrollNews:</label> <input type="text" required
+       name="scrollNews" style="width: 50%; height: 50px">
+
+      <button class="btn btn-success">Submit</button>
+
+
+
+     </form>
+    </div>
+
+    <!-- <div class="modal-footer">
+       <a href="/adminDashboard"><button class="btn btn-primary">Click
+         Back</button></a>
+      </div> -->
+   </div>
+  </div>
+ </div>
+
+
+
+		<div class="modal" id="addscrollModalButton">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title">AddScrollNews</h5>
+					<label class="close" onclick="closeAddScrollModal()">&times;</label>
+				</div>
+				<div class="modal-body">
+					<form action="/scrollnews/create" method="post" onsubmit="submitScrollForm(event)">
+						<label>ScrollNews:</label> <input type="text" required name="scrollNews"
+							style="width: 50%; height: 50px">
+					<button class="btn btn-success">Submit</button>
+	            </form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+
+
+	<div id="tab6" class="tabcontent">
+		<div class="row">
+			<div class="col-md-12 fixed">
+				<div class="searchadd">
+					<input type="text" id="searchcontact" style="width: 500px; height: 40px;"
+						placeholder="Search for contacts..." onkeyup="searchcontact()">
+				</div>
+				<br>
+				<div class="panel-body">
+					<table class="table table-responsive table-bordered table-hover"
+						style="width: 70%; margin: 0 auto; margin-left: 20px;">
+						<thead>
+							<tr>
+								<th>S.No</th>
+								<th>firstName</th>
+								<th>lastName</th>
+								<th>phoneNumber</th>
+								<th>email</th>
+								<th>message</th>
+								<th>Action</th>
+							</tr>
+						</thead>
+						<tbody id="dataContainer6">
+						</tbody>
+					</table>
+				</div>
+				<div id="contact-pagination-container" class="paginator"></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Download  Functionality-->
+
+
+
+	<div id="tab7" class="tabcontent">
+		<div class="row">
+			<div class="col-md-12 fixed">
+				<br> <br>
+				<div class="searchadd">
+					<input type="text" id="searchsdownload" style="width: 600px; height: 40px; border: 1px solid black;"
+						placeholder="Search for Downlaod file feilds..." onkeyup="searchDownload()">
+					<div class="col-sm-2 addnew">
+						<button class="btn btn-primary" onclick="addDownlaod()"
+							style="margin-left: 20px;">AddNew</button>
+					</div>
+				</div>
+				<br>
+				<div class="panel-body">
+					<table class="table table-responsive table-bordered table-hover"
+						style="width: 10%; margin-left: 18px;">
+						<thead>
+							    <tr>
+								<th>S.No</th>
+								<th>Tittle</th>
+								<th>Description</th>
+								<th>No of downloads</th>
+								<th colspan="2">Action</th>
+							</tr>
+						</thead>
+						<tbody id="datadownload"></tbody>
+					</table>
+				</div>
+	        <div id="download-pagination-container" class="paginator"></div>
+			</div>
+		</div>
+
+
+
+
+
+
+		<div class="modal fade" id="editDownlaodNewsModal" tabindex="-1" aria-labelledby="editScrollNewsModalLabel"
+			aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="editDownlaodNewsModal">Edit Form</h5>
+						<label class="close" for="modalToggle" onclick="closeeditModel()">&times;</label>
+					</div>
+					<div class="modal-body">
+						<form id="editdownlaod" method="POST" action="" onsubmit="submitEditDownlaodForm(event)">
+							<input type="hidden" name="_method" value="PUT" /> <input type="hidden" name="id"
+								value="" />
+							<div class="user-details with-background">
+								<div class="input-box">
+									<label class="details">Title:</label> <input type="text" name="title"
+										id="TitleName">
+								</div>
+								<div class="input-box">
+									<label class="details">Description :</label> <input type="text" name="description"
+										id="descriptionText">
+								</div>
+								<div class="input-box">
+									<label class="details">File:</label> <input type="file" name="file" id=currentFile>
+								</div>
+							</div>
+							<button class="btn btn-success">Submit</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+
+
+
+		<div class="modal" id="addownloadModalButton">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" style="text-align: center;">AddDownlaodForm</h5>
+					<label class="close" onclick="closeAddDownloadModal()">&times;</label>
+				</div>
+				<div class="modal-body">
+					<form action="/api/upload" method="post" onsubmit="submitDownloadForm(event)">
+						<div class="user-details with-background">
+							<div class="input-box">
+								<label class="details">Title:</label> <input type="text" required name="title">
+							</div>
+							<div class="input-box">
+								<label class="details">Description :</label> <input type="text" required
+									name="description">
+							</div>
+							<div class="input-box">
+								<label class="details">File:</label> <input type="file" required name="file">
+							</div>
+						</div>
+						<button class="btn btn-success">Submit</button>
+					</form>
+				</div>
+			</div>
+		</div>
+     </div>
+	</div>
+	</div>
+	</div>
+</body>
+</html>

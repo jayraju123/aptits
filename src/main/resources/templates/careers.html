@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>careers</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/careers.css}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<!--ICONS LINK-->
+	<link rel="stylesheet" href="https://kit.fontawesome.com/fafd4002bd.css" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/fafd4002bd.js" crossorigin="anonymous"></script>
+
+	<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+	<!--Acoordin Links-->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
+	<style>
+		/* Style for job container */
+		.job-container {
+			margin: 10px;
+			padding: 10px;
+			background-color: #fff;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+		}
+
+		/* Style for job title */
+		.job-title {
+			font-size: 18px;
+			cursor: pointer;
+			color: #333;
+			/* Change color as needed */
+
+		}
+
+		/* Style for job description div */
+		.job-description {
+			margin-top: 10px;
+		}
+
+		/* Style for key skills */
+		.keySkills {
+			color: #555;
+			font-weight: bold;
+		}
+
+		/* Style for years of experience */
+		.yearsOfExperience {
+			color: #555;
+			/* Change color as needed */
+		}
+
+		.first {
+			font-size: 24px;
+			text-align: center;
+			margin: 20px 0;
+			color: #333;
+			/* Change color as needed */
+		}
+
+		.job-title {
+			font-size: 18px;
+
+			cursor: pointer;
+
+
+		}
+
+		/* CSS for job cards */
+		.job-card {
+			width: 300px;
+			height: 200px;
+			background-color: #f0f0f0;
+			border: 1px solid #ccc;
+			padding: 10px;
+			margin: 10px;
+			box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+		}
+
+		.job-card p {
+			margin: 0;
+		}
+
+
+
+		.status-indicator {
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			display: inline-block;
+			margin-left: 10px;
+		}
+
+		.status-indicator.active {
+			background-color: green;
+		}
+
+		.status-indicator.inactive {
+			background-color: red;
+		}
+
+
+		/* CSS styles for job containers */
+		.job-container {
+			border: 1px solid #ddd;
+			margin: 10px;
+			padding: 10px;
+			background-color: #f9f9f9;
+		}
+
+		.job-title {
+			cursor: pointer;
+		}
+
+		/* CSS styles for job details */
+		.job-details {
+			display: none;
+			padding: 15px;
+			border: 1px solid #ccc;
+			background-color: #f5f5f5;
+			border-radius: 5px;
+			margin-top: 10px;
+		}
+
+		.job-details h2 {
+			color: #333;
+		}
+
+		.job-details p {
+			color: #555;
+		}
+
+		/* CSS styles for the "Apply Now" button */
+		.apply-button {
+			background-color: #007bff;
+			color: #fff;
+			border: none;
+			padding: 10px 20px;
+			cursor: pointer;
+			border-radius: 5px;
+		}
+
+		.apply-button:hover {
+			background-color: #0056b3;
+		}
+
+		.dropdown-arrow {
+			cursor: pointer;
+			margin-left: 1000px;
+
+
+		}
+
+		/* Style for the dropdown content */
+		.dropdown-content {
+			display: none;
+		}
+
+		/* Style for the displayed job details */
+		.job-details-displayed {
+			display: block;
+		}
+	</style>
+
+
+
+
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+	<script>
+		// Function to display job details
+		function displayJobDetails(jobId) {
+			const jobDetailsDiv = document.querySelector(`#job-details-${jobId}`);
+			const dropdownContent = document.querySelector(`#dropdown-content-${jobId}`);
+
+			if (jobDetailsDiv.classList.contains('job-details-displayed')) {
+				jobDetailsDiv.classList.remove('job-details-displayed');
+				dropdownContent.style.display = 'none';
+			} else {
+				jobDetailsDiv.classList.add('job-details-displayed');
+				dropdownContent.style.display = 'block';
+			}
+		}
+
+		// Function to format a JavaScript date as 'YYYY-MM-DD'
+		function formatDate(date) {
+			const year = date.getFullYear();
+			const month = String(date.getMonth() + 1).padStart(2, '0');
+			const day = String(date.getDate()).padStart(2, '0');
+			return `${year}-${month}-${day}`;
+		}
+
+		// Fetch job data from your API endpoint
+		// Replace the URL with your actual API endpoint
+		fetch(`/apijobdetails/alljobs`)
+			.then(response => {
+				if (!response.ok) {
+					throw new Error("Network response was not ok");
+				}
+				return response.json();
+			})
+			.then(data => {
+				const jobTitlesContainer = document.getElementById("dataContainer3");
+				if (Array.isArray(data)) {
+					data.forEach(item => {
+						const jobContainer = document.createElement("div");
+						jobContainer.classList.add("job-container");
+
+						const jobTitleElement = document.createElement("div");
+						jobTitleElement.classList.add("job-title");
+						jobTitleElement.innerHTML = `
+                        <strong>${item.jobTitle}</strong> 
+                        <br>
+                        <hr>
+                        <strong>Experience:</strong> ${item.yearsOfExperience}
+                        <span class="dropdown-arrow" onclick="displayJobDetails(${item.id})">▼</span><br>
+                        <strong>Status:</strong> ${item.status ? 'Open' : 'Closed'}<br>
+                        <strong>Number of Positions:</strong> ${item.numberOfPositions}<br>
+                        <strong>Posted On:</strong> ${formatDate(new Date(item.creationDate))}
+                    `;
+
+						const jobDetailsDiv = document.createElement("div");
+						jobDetailsDiv.classList.add("job-details");
+						jobDetailsDiv.id = `job-details-${item.id}`;
+						jobDetailsDiv.innerHTML = `
+                        <p><strong>Job Description:</strong> ${item.jobDescription}</p>
+                            <p><strong>Key Skills:</strong> ${item.keySkills}</p>                   
+                        <p><strong>Role:</strong> ${item.role}</p>
+                        <p><strong>Education:</strong> ${item.education}</p>
+                        <button class="apply-button" onclick="window.location.href='/applicationform'">Apply Now</button>
+                    `;
+
+						const dropdownContent = document.createElement("div");
+						dropdownContent.classList.add("dropdown-content");
+						dropdownContent.id = `dropdown-content-${item.id}`;
+						dropdownContent.appendChild(jobDetailsDiv);
+
+						jobTitleElement.addEventListener("click", () => {
+							displayJobDetails(item.id);
+						});
+
+						jobContainer.appendChild(jobTitleElement);
+						jobContainer.appendChild(dropdownContent);
+						jobTitlesContainer.appendChild(jobContainer);
+					});
+				} else {
+					console.error("Data format not as expected.");
+				}
+			})
+			.catch(error => {
+				console.error("Error fetching job titles:", error);
+			});
+	</script>
+
+
+
+
+
+<body>
+	<div class="fixed">
+		<ul class="topnav">
+
+			<li><a href="https://www.facebook.com/profile.php?id=100090510473876"><i
+						class="fa-brands fa-facebook"></i></a></li>
+			<li><a href="https://wa.me/+918712655800"><i class="fa-brands fa-whatsapp"></i></a></li>
+			<li><a href="https://www.instagram.com/aptit_solutions/"><i class="fa-brands fa-instagram"></i></a></li>
+			<li><a href="https://employers.indeed.com/messages?hl=en&co=IN"><i class="fa-brands fa-linkedin"
+						style="margin-top:0px;background-color:blue"></i></a></li>
+			<li><a href="https://twitter.com/info_Aptits"><i class="fa-brands fa-twitter"></i></a></li>
+			<li>
+				<a href="https://www.youtube.com/channel/UC91-ZPPRaaH98GkE10AAhcg">
+					<img src="images/you.jpg" alt="YouTube Image" style="width: 32px; height: 30px; margin-top: s0px;">
+
+				</a>
+			</li>
+
+
+
+		</ul>
+	</div>
+	<div class="mananav">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10">
+					<span class="callnow">
+						<div class="naree">
+							<marquee width="100%">We transform businesses of most major sectors with powerful and
+								adaptable digital solutions that satisfy the needs of today.</marquee>
+						</div>
+					</span>
+				</div>
+				<div class="col-md-2">
+					<a href="/login"><button class="login" hidden>Login Here</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgb(15, 66, 88);">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="index">
+				<img src="images/im.jpg" style="width: 130px; height: 80px;border-radius: 8px" alt="...">
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav-list">
+					<li class="nav-item"><a class="nav-link" href="/index">Home</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/aboutUs">About Us</a></li>
+					<!-- <li class="nav-item"><a class="nav-link" href="/training">Trainings</a>
+						</li> -->
+					<li class="nav-item"><a class="nav-link" href="/service">Services</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/solution">Solutions</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/products">Products</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/download">Downloads</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/news">News&Events</a></li>
+					<li class="nav-item"><a class="nav-link" href="/careers">Careers</a>
+					</li>
+
+					<li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
+
+
+					<li class="nav-item"><a class="nav-link" href="/payment"><button class="payment" hidden>Client
+								Payment</button></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<!--text on image-->
+	<div class="overview">
+		<div class="inover">
+			<div class="overtext">
+				<a href="/index"><span>Home</span></a>&nbsp;<i class="fa-solid fa-angle-right"></i>&nbsp;&nbsp;<a
+					href="#"><span>career</span></a>&nbsp;&nbsp;<i class="fa-solid fa-angle-right"></i>&nbsp;&nbsp;
+			</div>
+			<div class="company">
+				<h2>Careers</h2>
+
+			</div>
+		</div>
+	</div>
+
+
+	<!--Content-->
+
+
+
+
+	<div class="container-fluid white">
+		<div class="container leftside">
+			<h5 class="first" style="text-align: center;">Current Job Openings</h5>
+			<div class="job-titles" id="dataContainer3">
+				<!-- Job titles will be dynamically populated here -->
+			</div>
+			<div class="job-details" style="display:flex; flex-wrap: wrap;">
+				<!-- Job details and apply button will be displayed here -->
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+
+	<br>
+
+	<div class="container-fluid footer" style="background-color: #000048; ">
+		<div class="container">
+			<div class="row" style="color: #fff;">
+
+				<div class="col-md-4 simm">
+					<h3 class="footerh3">COMPANY</h3>
+					<ul class="footerservice">
+						<li><a href="/index">
+								<h5>
+									<i class="fa fa-angle-right"></i>&nbsp;&nbsp;HOME
+								</h5>
+							</a></li>
+						<li><a href="/aboutUs">
+								<h5>
+									<i class="fa fa-angle-right"></i>&nbsp;&nbsp;ABOUT US
+								</h5>
+							</a></li>
+						<li><a href="/careers">
+								<h5>
+									<i class="fa fa-angle-right"></i>&nbsp;&nbsp;CAREERS
+								</h5>
+							</a></li>
+
+					</ul>
+
+				</div>
+
+				<div class="col-md-4 simm">
+					<h3 class="footerh3">OUR SERVICES</h3>
+					<ul class="footerservice">
+						<li><a href="/service">
+								<h5>
+									<i class="fa fa-angle-right"></i>&nbsp;&nbsp;SERVICES
+								</h5>
+							</a></li>
+						<li><a href="/solution">
+								<h5>
+									<i class="fa fa-angle-right"></i>&nbsp;&nbsp;SOLUTIONS
+								</h5>
+							</a></li>
+						<li><a href="/products">
+								<h5>
+									<i class="fa fa-angle-right"></i>&nbsp;&nbsp;PRODUCTS
+								</h5>
+							</a></li>
+					</ul>
+
+				</div>
+
+				<div class="col-md-4 simm">
+					<h3 class="footerh3">CONTACT INFO</h3>
+					<ul class="footerservice">
+						<h6>APT IT SOLUTIONS</h6>
+						<br>
+						<div class="cor">
+							<div class="spac">
+
+								<h5> <i class="fa-solid fa-phone"></i>&nbsp;&nbsp;+91 8712655800</h5>
+								<p class="conpara">
+
+							</div>
+
+
+							<div class="space">
+
+								<p><a href="mailto:info@aptits.com">
+										<div class="connect">
+											<h5> <i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;info@aptits.com</h5>
+										</div>
+									</a></p>
+								<p class="conpara"></p>
+
+							</div>
+						</div>
+
+
+
+
+
+				</div>
+			</div><br><br>
+			<div class="row address">
+				<h3 class="footerrh3 one">OUR LOCATIONS</h3>
+				<div class="col-md-4 sim">
+					<ul class="footerservice">
+						<li class="corporate">
+							<h5>HYDERABAD :</h5>
+							<p>
+								3rd Floor, Sahithi Arcade, Besides SR Nagar Police Station, S R
+								Nagar, Hyderabad 500038,<br> INDIA. . E-mail:
+								info@aptits.com.
+							</p>
+						</li>
+
+						<li class="corporate">
+							<h5>BANGALORE:</h5>
+							<p>A A ARCADE" 2nd floor, Outer Ring Road Opp-Kala Mandir
+								service Road Landmark: Adjacent to AIRTEL office Marathahalli
+								Bengaluru 560037 Karnataka, INDIA.</p>
+						</li>
+
+					</ul>
+
+
+				</div>
+
+				<div class="col-md-4 sim">
+					<ul class="footerservice">
+
+						<li class="corporate">
+							<h5>VISAKHAPATNAM :</h5>
+							<p>
+								Door 48-7-70/1, Near Veg Market, NTR Statue, Ramatakies Down,
+								Srinagar, Visakhapatnam 530016, INDIA.
+							</p>
+						</li>
+
+						<li class="corporate">
+							<h5>CHENNAI:</h5>
+							<p>4th Floor, Main Building (Rear), Guna Complex, No.443 &
+								445, Anna Salai, Teynampet, Chennai 600018, INDIA.</p>
+
+						</li>
+					</ul>
+					<br>
+
+				</div>
+
+				<div class="col-md-4 sim">
+					<ul class="footerservice">
+						<li class="corporate">
+							<h5>PUNE:</h5>
+							<p>Office No: 301, 3rd Floor, Walchand House Happy Colony
+								Lane-1, Warje Malwadi Rd, Kothrud, Pune, Maharashtra 411038,
+								INDIA .</p>
+						</li>
+
+					</ul>
+					<br>
+
+				</div>
+				<div class="col-sm-4 simu">
+					<a href="/privacy" class="footanchor">Privacy Policy</a>
+				</div>
+				<div class="col-sm-4 simu">
+					<a href="/refund" class="footanchor">Refund Policy</a>
+				</div>
+				<div class="col-sm-4 simu">
+					<a href="/termsandcondition" class="footanchor">Terms&nbsp&nbspand&nbsp&nbspConditions</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--LAST FOOTER -->
+	<div class="container-fluid" style="background-color: black; color: #fff;">
+		<div class="container">
+
+			<div class="row lastfooter">
+				<div class="col-sm-6" foot>
+					<p>© 2023 APT IT Solutions • All Rights Reserved</p>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+	</a>
+
+	<!--  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script>
+    // Event listener for job titles
+    document.querySelectorAll(".job-title").forEach(title => {
+      title.addEventListener("click", () => {
+        const jobId = title.dataset.jobId;
+        // Call a function to fetch and display the job details based on the jobId
+        fetchAndDisplayJobDetails(jobId);
+      });
+    });
+
+    function fetchAndDisplayJobDetails(jobId) {
+      fetch(`/apijobdetails/alljobs/`)
+        .then(response => response.json())
+        .then(job => {
+          const jobDetailsContainer = document.querySelector(".job-details");
+          jobDetailsContainer.innerHTML = `
+            <h4>${job.jobTitle}</h4>
+            <p>${job.jobDescription}</p>
+             Display other job details as needed 
+          `;
+        });
+    }
+  </script>
+  -->
+
+	<script>
+		//Change navbar styles on scrolling
+		window.addEventListener('scroll', () => {
+			document.querySelector('nav').classList.toggle('window-scroll', window.scrollY > 0)
+			document.getElementById("mananav").style.display = "none";
+		});
+
+		const toTop = document.querySelector(".to-top");
+		window.addEventListener("scroll", () => {
+			if (window.pageYOffset > 100) {
+				toTop.classList.add("active");
+			} else {
+				toTop.classList.remove("active");
+			}
+		});
+
+		$(function () {
+			$(".accordion-btn").on("click", function () {
+				$(this).next(".accordion-list").slideToggle();
+			});
+		});
+	</script>
+
+</body>
+
+</html>

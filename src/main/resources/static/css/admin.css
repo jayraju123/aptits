@@ -1,0 +1,895 @@
+*{
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    font-size: 100px;
+
+}
+
+h1{
+	  font-style: italic;
+}
+
+#pagination-container-careers button ,#paginationControls button {
+    margin: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background-color: blue;
+    border-radius: 3px;
+    transition: background-color 0.3s ease;
+     border-radius: 3px;
+}
+
+#pagination-container-careers button:hover, #paginationControls button:hover {
+    background-color: #bbb;
+}
+
+.paginator {
+    margin: 20px 0;
+    text-align: centerrgb(255, 0, 255)(0, 255, 128)}
+
+.paginator button {
+    margin: 0 5px;
+    padding: 5px 10px;
+}
+.bg-light.modified-sidebar {
+    background-color: red !important; /* Your desired color */
+}
+ thead th {
+    color: #00FF00;  /* This is the hex code for bright green */
+}
+h4{
+color:#6495ED;
+text-align:center;
+font-weight:bold;
+}
+.col-sm-4{
+    width: 33.3%;
+    height: auto;
+}
+.sidebar{
+    margin-top: 500px ;
+	}
+.navbar{
+	background-color:pink;
+}
+
+
+
+.heading{
+	background-color:#393230;
+	height: 100px;
+	margin-bottom: 200px;
+	color: white;
+	position: fixed;
+	top: 0;
+	
+}
+.heading h1{
+	color: #fff;
+	padding-top: 20px;
+	margin-left: 200px;
+}
+
+.news{
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+  padding: 10px;
+  background-color: #f2f2f2;
+  color: #000;
+}
+.tabcontent {
+    margin-top: 0; 
+    padding-top: 0; 
+    width: 100%;
+margin:290px;
+}
+
+
+.container-fluid {
+    padding: 20px;
+    margin-bottom: -100px;
+    width: 1000px;
+ 
+}
+.scroll{
+	margin:auto;
+	justify-content: center;
+	width: 500px;
+	background-color: #0056b3;
+}
+
+.table{
+	margin:auto;
+}
+
+.admin {
+
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 15px;
+}
+
+.heading {
+    text-align: center;
+    padding-right: 100px;
+    font-size: 24px;
+    color: black;
+    padding-right:100px;
+}
+
+h1{
+	margin-right:300px;
+
+}
+
+.navbar {
+ 
+    padding: 10px 0;
+}
+
+#dataContainer3{
+	 max-height: 13.1em;
+    overflow: auto;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 20px;
+    color: rgb(255, 255, 255);
+  
+}
+
+
+.nav-item:hover{
+	background-color:rgb(192, 192, 192);
+}
+
+/* Table Styles */
+table {
+  border-collapse: collapse;
+  width: 1000px;
+  
+}
+
+
+table , td {
+    padding: 10px;
+    text-align: left;
+  
+    padding-top: 30px;
+   
+}
+
+#addCareersModalButton{
+	text-align:left;
+	font-size:20px;
+}
+th {
+    background-color: #F78E21;
+    color: white;
+    height:30px;
+}
+.input-box {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+
+.table {
+	width:100%;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+
+.button {
+    background-color: #F78E21;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #E56200;
+}
+
+
+.image {
+    max-width: 429px;
+    max-height: 75px;
+    
+}
+
+/* Additional Styles */
+.addnewscroll {
+    margin-left: auto;
+}
+
+
+.tabcontent {
+    display: none;
+}
+
+#addcroll {
+    background-color: #F78E21;
+    border-radius: 10px;
+    color: white;
+    padding: 8px 16px;
+}
+
+#addcroll a {
+    color: white;
+    text-decoration: none;
+}
+
+#editbutton a {
+    color: white;
+    text-decoration: none;
+   
+}
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 20px 0;
+  background-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+ td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Style buttons */
+button {
+  padding: 8px 15px;
+  background-color: #007bff;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  
+}
+
+button a {
+  color: #fff;
+  text-decoration: none;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.scroll{
+	color:black;
+}
+
+.scroll th{
+	color:black;
+}
+
+.container-fluid.admin {
+    padding-top: 20px;
+  
+}
+.side {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    background-color: #f8f9fa;
+    padding-top: 20px;
+    box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+
+}
+        .tablink {
+            display: block;
+            width: 100%;
+            text-align: left;
+            padding: 10px 20px;
+            border: none;
+            background-color: transparent;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .tablink:hover {
+            background-color: #e9ecef;
+        }
+
+        .content {
+            margin-left: 250px;
+            padding: 20px;
+        }
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Sidebar styles */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 10px;
+    background-color: #f8f9fa;
+}
+
+.sidebar .nav-item {
+    margin-bottom: 5px;
+}
+
+.sidebar .nav-link {
+    padding: 10px 20px;
+    text-align: left;
+    color: #333;
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+}
+.sidebar .tablink:hover {
+    background-color: #0056b3;
+    color: white;
+}
+	
+
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link:focus {
+   
+    color: #333;
+    text-decoration: none;
+}
+
+.sidebar .nav-link.active {
+    background-color: #024892;
+    color: #fff;
+    margin: 10px;
+    width: 150px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Main content area */
+.content-section {
+    display: none;
+    margin: auto;
+    width: 90%;
+}
+
+.content-section.active {
+    display: block;
+}
+
+/* General styles */
+.navbar-nav .nav-item .nav-link {
+    color: #f1efef;
+}
+
+.navbar-nav .nav-item .nav-link.active {
+    color: #fff;
+}
+
+/* Other specific styles can be kept as needed */
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    body {
+        padding-top: 70px;
+    }
+
+    .navbar-brand img {
+        width: 120px;
+        height: auto;
+    }
+
+    .links {
+        background-color: #040504;
+    }
+
+    .content-section {
+        padding: 10px;
+    }
+
+    .navbar-toggler {
+        display: block !important;
+    }
+
+    .show-navbar-collapse .navbar-collapse {
+        display: block !important;
+    }
+
+    /* Customize other responsive styles as needed */
+}
+
+
+.button-container {
+    display: flex;
+    gap: 10px;
+}
+
+.edit-button,
+.delete-button {
+    border-radius: 6px;
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background-color: #007bff;
+    color: #ffffff;
+    margin-right: 5px; 
+    width: 60px;
+    height: 40px;
+   
+}
+
+.edit-btn {
+    margin-right: 5px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    
+   
+  }
+
+  .delete-btn {
+    background-color: #ff0000;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+  }
+
+
+ .resume-link {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 4px 8px;
+        text-decoration: none;
+        display: inline-block;
+      }
+
+
+
+
+#logoutButton {
+    background-color: #f44336;
+    color: #ffffff;
+    border: none;
+   border-radius: 6px;
+    cursor: pointer;
+    position: fixed;
+    margin-top: -40px;
+    right: 20px;
+    margin-right: 80px;
+    width: 80px;
+    height: 40px;
+}
+
+.Mahe{
+	display: flex;
+	width: 200px;
+}
+
+.img td,th{
+	width: 100px;
+	
+}
+
+.img th{
+   height: 40px;
+   background-color: blue;
+   color: #fff;
+	
+}
+
+.imgid{
+	width: 50px;
+}
+
+#tbl-student{
+	margin:0;
+}
+
+.edit-btn, .delete-btn {
+    margin-right: 5px;
+}
+.white-text-btn {
+    color: white !important;
+}
+
+  .modal-backdrop {
+            z-index: 1040;
+        }
+        
+   .modal-toggle { display: none; } 
+
+
+    .modal { 
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
+        color:rgb(0, 0, 0);
+        text-align:center;
+        z-index: 1050;
+    }
+
+  .modal-content,#carrersedit{
+        background-color: white;
+        padding: 20px;
+        border-radius: 5px;
+        max-width: 500px;
+        margin: 0 auto;
+        position: relative;
+        z-index: 2;
+         margin-top: 110px;
+    }
+    .modal-backdrop {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+    .modal-toggle:checked + .modal,
+    .modal-toggle:checked ~ .modal-backdrop {
+        display: flex;
+    }
+
+    .fas.fa-search {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+textarea[name="newsEvent"] {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+
+.fixed {
+  position: fixed;
+  top: 53%;
+  left: 70%;
+  right:10%;
+  transform: translate(-50%, -50%);
+}
+ .searchadd{
+ display:flex;
+ padding-left:10px;
+ padding-top:50px;
+ }
+ 
+ #searchjob {
+  width: 600px;
+  	
+  height: 40px;
+  padding-right: 40px;
+  margin-top: 100px;
+  margin-left: 60px;
+  border: 2px solid black; 
+  border-radius: 5px; 
+}
+
+#searchcontact {
+  width: 600px; 
+  height: 40px;
+  padding: 10px; 
+  font-size: 16px;
+  border: 1px solid black; 
+  border-radius: 5px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  outline: none; 
+}
+
+#searchcontact::placeholder {
+  color: #999;
+}
+
+#searchcontact:hover,
+#searchcontact:focus {
+  border-color: #007bff; 
+}
+
+#searchscrollnews {
+  width: 600px; /* Set the width */
+
+  border: 1px solid black;
+  border-radius: 5px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+  margin-right:80px;
+ 
+}
+
+.scroladd{
+	padding-top:50px;
+}
+
+#searchCareersdetails{
+	margin-top:80px;
+	padding-left:50px;
+	border:1px solid black;
+
+}
+.jobtable{
+	margin-left: -50px;
+}
+#searchBox{
+	
+	padding-left:50px;
+	border:1px solid black;
+	border-sizing:border-box;
+	
+}
+
+.addgal{
+	margin-left:50px;
+}
+
+
+
+#searchInput{
+	  width: 600px; /* Set the width */
+     border: 1px solid black; /* Add a border */
+  border-radius: 5px; /* Add rounded corners */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle box shadow */
+  margin-right:80px;
+   height: 40px; 
+}
+main {
+  
+    padding: 20px;
+    position: relative; /* Add relative positioning */
+    top: 0; /* Start from the top */
+}
+
+
+.input-box {
+  margin-bottom: 10px;
+}
+
+.details {
+  font-weight: bold;
+  text-align: left;
+}
+-------------------------------edit carres form css code ::-webkit-meter-even-less-good-value
+
+#tbl-student {
+  width: 70%;
+  margin: auto;
+}
+
+
+
+#tbl-student th:nth-child(8) {
+    width: 200px;
+}
+
+#tbl-student td:nth-child(8) {
+    max-height: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#tbl-student td:nth-child(8):hover {
+    overflow: auto; 
+    max-height: none;
+}
+
+#tbl-news td {
+    max-height: 100px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#tbl-news td:hover {
+    overflow: auto; 
+    max-height: none;
+}
+  .fixed-search {
+    position: fixed;
+    width: 80%;
+    margin-top: -220px;
+    margin-left: 60px;
+     margin-top:10px;
+  }
+  .scrollable-table {
+    width: 80%;
+    margin-left: 60px;
+    margin-bottom: -700px;
+    overflow: auto;
+    max-height: 500px;
+     padding-bottom:630px;
+  }
+  
+  /* same css for all the forms */
+  .user-details {
+  background-color: #f5f5f5;
+  padding: 10px;
+  border-radius: 5px;
+}
+  
+.table-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; 
+    background: rgb(0, 0, 0); 
+    overflow-y: auto;
+    padding-top: 50px;
+}
+  
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px 30px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3; 
+}
+  .btn-info {
+  background-color: rgb(0, 128, 255); 
+  color: #fff; /* Text color */
+  padding: 15px 30px; 
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.btn-info:hover {
+  background-color: rgb(0, 128, 255); 
+}
+  
+
+.btn-success {
+  background-color: #28a745; 
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn-success:hover {
+  background-color: #218838; 
+}
+  
+  
+
+.modal-footer input[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.modal-footer input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+  
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff; 
+  padding: 10px; 
+  color:black;
+  text-align:center;
+}
+  
+  input[type="file"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-box input[type="text"],
+.input-box input[type="number"],
+.input-box input[type="email"],input[type="date"],
+input[type="text"],
+textarea,
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.close {
+   cursor: pointer;
+        background: none;
+        border: none;
+        font-size: 24px;
+        line-height: 1;
+        color:red;
+        position: absolute;
+        right: 10px;
+        top: 10px;
+	
+}
+
+.modal-title {
+  font-size: 20px;
+  color: black; 
+text-align:center;
+}
+
+.modal-content {
+  background-color: #fff;
+  width: 80%;
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+   z-index: 2;
+   position: relative;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

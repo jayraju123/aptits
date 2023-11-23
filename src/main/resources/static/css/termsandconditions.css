@@ -1,0 +1,501 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+.img-fluid{
+    width: 50%;
+    margin-left: 30px;
+    border-radius: 10px;
+    height:50px;
+}
+.fixed-size-image {
+    width: 106px;
+   
+ 
+  }
+.fa-twitter{
+    background-color: #0090D2;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 7px;
+   
+}
+.fa-whatsapp{
+    background-color: #0de510;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 7px;
+   
+}
+.fa-instagram{
+    background-color: #E4405F;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 7px;
+    
+}
+
+.fa-facebook{
+    background-color: #1B7ECB;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+   
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 7px;
+}
+.fa-linkedin{
+    background-color: #0e7eb3;
+    color: #fff;
+    width: 32px;
+    height: 32px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    padding-top: 7px;
+ 
+}
+.mananav{
+    width: 100%;
+    height: 60px;
+    background-color: rgb(7, 12, 58);
+    color: #fff;
+    padding-top: 10px;
+    font-size: 14px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    z-index: 300;
+    overflow: hidden;   
+}
+.login{
+    padding: 5px 10px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 30px;
+}
+.payment{
+    margin-top: -10px;
+}
+.naree{
+    padding-top: 5px;
+}
+.fixed{
+    width: 35px;
+    height: 300px;
+    position: fixed;
+    top: 32%;
+    left: 0;
+    border-radius: 10px;
+    transition: all 0.3s ease-out;
+}
+.fixed .topnav{
+    list-style-type: none;
+}
+.fixed .topnav li{
+    margin-left: -32px;
+    border-radius: 5px;
+}
+.topnav a:hover{
+   margin: 5px;
+   border-radius: 20px;
+}
+.navbar{
+    color: white;
+    margin-top: 50px;
+}
+.navbar-nav{
+    margin-right: 50px;
+}
+.nav-item .nav-link{
+    color: #fff;
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    padding: 12px;
+}
+#nav-list a {
+    color: #fff;
+    }
+    #nav-list a:hover{
+    color: #FF7CD8;
+    }
+.nav-item button{
+    padding: 10px 15px;
+    border-radius: 30px;
+    border: none;
+    background-color: #f80b0b;
+}
+
+.window-scroll{
+    background-color: rgb(15, 66, 88);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,0.8);
+    transition: 0.4s ease-in-out;
+    margin-top: -7px;
+    color: #fff;
+}
+/*Text on Image*/
+.overview{
+    width: 100%;
+    height: 100px;
+    background-image: url(images/abt.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-color: gray;
+    margin-top: 58px;
+}
+.overtext{
+    width: 85%;
+    height: 40px; 
+    margin: auto;
+}
+.overtext{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #fff;
+}
+.overtext a{
+    text-decoration: none;
+    color: #fff;
+}
+.company{
+    width: 350px;
+    height: 70px;
+    margin: auto;
+    padding-top:10px;
+   font-family: sans-serif;
+  font-size: 16px;
+     color: #fff;
+    font-weight: 700;
+    padding-left:100px;
+}
+.abouttext{
+    width: 100%;
+    height: 670px;
+}
+.jquery{
+    width: 100%;
+    height: 80rem;
+    background-color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+   
+}
+.third{
+    color: orangered;
+    margin-left: 20px;
+}
+.first{
+    padding-top: 50px;
+    color: orangered;
+    font-size: 18px;
+    margin-left: 20px;  
+}
+.second{
+    text-align: justify;
+    font-size: 15px;
+    margin-left: 20px;
+}
+.footer{
+    content: "";
+    display: table;
+    clear: both;
+    height: 650px;
+  }
+.footerimg{
+    margin-top: 29px;
+}
+.footerh3{
+    border-bottom: 1px solid rgb(250, 247, 247);
+    margin-top: 55px;
+    color: #F78E21;
+    padding-bottom: 19px;
+}
+.socialfooter{
+    cursor: pointer;
+}
+.footerservice{
+    list-style: none;
+    padding-left: 0px;
+}
+.footerservice li{
+    padding: 10px;
+   
+}
+.footerservice p{
+    font-size: 14px;
+}
+.footerservice h5{
+    font-size: 18px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.footerservice a{
+    text-decoration: none;
+    color: #fff;
+}
+.footerservice a:hover{
+    color: #e9d607;
+}
+.fa-angle-right{
+    font-size: 10px;
+}
+.fa-map-marker , .fa-phone , .fa-envelope , .fa-globe{
+    color: rgb(44, 165, 159);
+}
+.slider{
+    width: 250px;
+    height: 200px;
+    background-color: #0090D2;
+}
+.corporate h5{
+    font-weight: 700;
+}
+.lastfooter{
+    padding: 25px;
+}
+.socialfooter a{
+    color: #fff;
+    font-size: 25px;
+}
+.socialfooter a:hover{
+    opacity: 0.5;
+}
+.footanchor{
+    text-decoration: none;
+    color: #fff;
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.to-top{
+    background-color: orangered;
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    right: 45px;
+    bottom: 60px;
+    border-radius: 50%;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+    color: #fff;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.4s;
+}
+.to-top.active{
+    bottom: 20px;
+    opacity: 1;
+    pointer-events:all;
+}
+
+
+.corporate{
+	width: 300px;
+	margin-left:10px;
+	margin-top:20px;
+
+}
+.lastfooter{
+	
+padding-left:50px;
+	
+}
+
+
+.footerservice a {
+     position: relative;
+    text-decoration: none;
+    color: #fff;
+}
+
+.footerservice a::before {
+   content: "";
+    position: absolute;
+    bottom: -2px; /* Adjust the position of the underline as needed */
+    left: 0;
+    width: 0;
+    height: 2px; /* Adjust the height of the underline as needed */
+    background-color: #fff; /* Adjust the color of the underline as needed */
+    transition: width 0.3s ease; /* Adjust the transition duration as needed */
+}
+
+.footerservice a:hover::before {
+    width: 30%;
+}
+
+/* Add this CSS code to your stylesheet or in a <style> block in your HTML */
+
+.footanchor {
+    position: relative;
+    text-decoration: none;
+    color: #fff;
+}
+
+.footanchor::before {
+    content: "";
+    position: absolute;
+    bottom: -2px; /* Adjust the position of the underline as needed */
+    left: 0;
+    width: 0;
+    height: 2px; /* Adjust the height of the underline as needed */
+    background-color: #fff; /* Adjust the color of the underline as needed */
+    transition: width 0.3s ease; /* Adjust the transition duration as needed */
+}
+
+.footanchor:hover::before {
+    width: 100%;
+}
+
+.footanchor:hover {
+    color: #d9a93e /* Change to your desired hover color */
+}
+
+.address{
+	color:white;
+	
+}
+
+.space{
+	margin-top:25px;
+}
+
+.spac{
+	margin-top:10px;
+}
+
+.footerrh3 {
+    margin-top: 55px;
+    color: #F78E21;
+    text-decoration: underline;
+    text-decoration-color: #fff; /* Replace "YourColor" with the desired text decoration color */
+}
+
+
+.topnav{
+    position: fixed;
+    top: 190px;
+     width: 100%;
+  
+}
+
+@media only screen and (max-width: 576px) {
+
+    .fixedicons a{
+        color: green;
+        font-size: 25px;    
+    }
+
+.navbar{
+    overflow: hidden;
+}
+.topnav{
+    width: 100%;
+}
+
+.login{
+    float: right;
+    margin-top: -29px;
+}
+.fixed{
+    width: 35px;
+    height: 300px;
+    position: fixed;
+    top: 60%;
+    left: 0;
+    border-radius: 10px;
+    transition: all 0.3s ease-out;
+}
+
+.servicerow{
+    width: 100%;
+    height: auto;
+}
+.serviceimg{
+    margin-left: 80px;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+}
+.navbar{
+    color: white;
+    opacity: 1;
+    visibility: visible;
+}
+.navbar-nav{
+    margin-right: 50px;
+}
+.nav-item .nav-link{
+    color: #fff;
+    font-size: 17px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin-top: 10px;
+}
+.window-scroll{
+    background-color: rgb(15, 66, 88);
+    box-shadow: 0 1rem 2rem rgba(0,0,0,2);
+    transition: 0.4s ease-in-out;
+    margin-top: -7px;
+    color: #fff;
+}
+.company h2{
+    text-align: center;
+    margin-top: 3px;
+    margin-right:45px;
+}
+.company{
+	padding-top:-10px;
+	width:400px;
+}
+.jquery{
+    width: 100%;
+  height: 320rem;;
+    background-color: #fff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin-bottom:450px;
+}
+.navbar-toggler{
+    color: #fff;
+}
+
+.footer{
+	margin-top:-620px;
+	margin-left:150px;
+}
+
+
+.corporate{
+	margin-left:-20px;
+}
+
+.company h2{
+    text-align: center;
+    margin-top: 3px;
+    margin-left:-35px;
+}
+   .navbar-toggler-icon {
+    filter: brightness(0) invert(1); /* Invert the icon color to white */
+  }
+
+
+
+}

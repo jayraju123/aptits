@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Gallery</title>
+	<link rel="stylesheet" type="text/css" th:href="@{/css/gallery.css}">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+		crossorigin="anonymous"></script>
+	<!--ICONS LINK-->
+	<link rel="stylesheet" href="https://kit.fontawesome.com/fafd4002bd.css" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/fafd4002bd.js" crossorigin="anonymous"></script>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+	<script>(function (w, d) {w.CollectId = "652232f8df70161214ca9c0b"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async = true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s);})(window, document);</script>
+	<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+	<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+
+	<style>
+
+		.gallery {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			/* three equal columns */
+			gap: 10px;
+			/* spacing between items */
+		}
+
+		.image-container img {
+			transition: transform 0.1s, box-shadow 0.1s;
+		}
+
+		.image-container img:hover {
+			transform: scale(1.05);
+			box-shadow: black;
+			/* Add shadow */
+		}
+		
+		
+		 body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    .image-container {
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s;
+      position: relative;
+    }
+
+    .image-container:hover {
+      transform: scale(1.1);
+    }
+
+    .preview-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      align-items: center;
+      justify-content: center;
+    }
+
+    .preview-image {
+      max-width: 90%;
+      max-height: 50%;
+      display: block;
+      margin: auto;
+    }
+
+      .close-button {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      color: black;
+      cursor: pointer;
+      font-size: 20px;
+      background: none;
+      border: none;
+    }
+		
+		   @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        .blink-link {
+            animation: blink 1s infinite;
+        }
+		
+	</style>
+</head>
+
+
+<body>
+
+	<div class="fixed">
+		<ul class="topnav">
+
+			<li><a href="https://www.facebook.com/profile.php?id=100090510473876"><i
+						class="fa-brands fa-facebook"></i></a></li>
+			<li><a href="https://wa.me/+918712655800"><i class="fa-brands fa-whatsapp"></i></a></li>
+			<li><a href="https://www.instagram.com/aptit_solutions/"><i class="fa-brands fa-instagram"></i></a></li>
+			<li><a href="https://employers.indeed.com/messages?hl=en&co=IN"><i class="fa-brands fa-linkedin"
+						style="margin-top:0px;background-color:blue"></i></a></li>
+			<li><a href="https://twitter.com/info_Aptits"><i class="fa-brands fa-twitter"></i></a></li>
+			<li>
+				<a href="https://www.youtube.com/channel/UC91-ZPPRaaH98GkE10AAhcg">
+					<img src="images/you.jpg" alt="YouTube Image" style="width: 32px; height: 30px; margin-top: s0px;">
+
+				</a>
+			</li>
+
+
+
+		</ul>
+	</div>
+
+
+
+	<div class="mananav">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10">
+					<span class="callnow">
+						<div class="naree">
+							<marquee width="100%">We transform businesses of most
+								major sectors with powerful and adaptable digital solutions that
+								satisfy the needs of today.</marquee>
+						</div>
+					</span>
+				</div>
+				<div class="col-md-2">
+					<a href="/login"><button class="login" hidden>Login
+							Here</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<nav class="navbar navbar-expand-lg navbar-light fixed-top" style="background-color: rgb(15, 66, 88);">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="/index"><img src="images/im.jpg"
+					style="width: 130px; height: 80px;border-radius: 8px;" alt="..."></a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+				aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav-list">
+					<li class="nav-item"><a class="nav-link" href="/index">Home</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/aboutUs">About Us</a></li>
+					<!-- <li class="nav-item"><a class="nav-link" href="/training">Trainings</a>
+					</li> -->
+					<li class="nav-item"><a class="nav-link" href="/service">Services</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/solution">Solutions</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/products">Products</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/download">Downloads</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/news">News&Events</a></li>
+					<li class="nav-item"><a class="nav-link" href="/careers">Careers</a>
+					</li>
+
+					<li class="nav-item"><a class="nav-link" href="/gallery">Gallery</a>
+					</li>
+					<li class="nav-item"><a class="nav-link" href="/contact">Contact Us</a></li>
+
+
+					<li class="nav-item"><a class="nav-link" href="/payment"><button class="payment" hidden>Client
+								Payment</button></a></li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+
+
+	<!--text on image-->
+	<div class="overview">
+		<div class="inover">
+			<div class="overtext">
+				<a href="/index"><span>Home</span></a>&nbsp;<i class="fa-solid fa-angle-right"></i>&nbsp;&nbsp;<a
+					href="#"><span>Gallery</span></a>&nbsp;&nbsp;<i class="fa-solid fa-angle-right"></i>&nbsp;&nbsp;
+			</div>
+			<div class="company">
+				<h2>Gallery</h2>
+
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+
+
+
+		<div class="container-fluid" ;>
+			<div class="tabcontent">
+				<div class="container">
+					<div class="row">
+						<div class="col-12">
+							<div class="panel-body">
+								<div class="gallery" id="galleryContainer">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div><br>
+
+		<div class="container-fluid footer" style="background-color: #000048; ">
+			<div class="container">
+				<div class="row" style="color: #fff;">
+
+					<div class="col-md-4 simm">
+						<h3 class="footerh3">COMPANY</h3>
+						<ul class="footerservice">
+							<li><a href="/index">
+									<h5>
+										<i class="fa fa-angle-right"></i>&nbsp;&nbsp;HOME
+									</h5>
+								</a></li>
+							<li><a href="/aboutUs">
+									<h5>
+										<i class="fa fa-angle-right"></i>&nbsp;&nbsp;ABOUT US
+									</h5>
+								</a></li>
+							<li><a href="/careers">
+									<h5>
+										<i class="fa fa-angle-right"></i>&nbsp;&nbsp;CAREERS
+									</h5>
+								</a></li>
+
+						</ul>
+
+					</div>
+
+					<div class="col-md-4 simm">
+						<h3 class="footerh3">OUR SERVICES</h3>
+						<ul class="footerservice">
+							<li><a href="/service">
+									<h5>
+										<i class="fa fa-angle-right"></i>&nbsp;&nbsp;SERVICES
+									</h5>
+								</a></li>
+							<li><a href="/solution">
+									<h5>
+										<i class="fa fa-angle-right"></i>&nbsp;&nbsp;SOLUTIONS
+									</h5>
+								</a></li>
+							<li><a href="/products">
+									<h5>
+										<i class="fa fa-angle-right"></i>&nbsp;&nbsp;PRODUCTS
+									</h5>
+								</a></li>
+						</ul>
+
+					</div>
+
+					<div class="col-md-4 simm">
+						<h3 class="footerh3">CONTACT INFO</h3>
+						<ul class="footerservice">
+							<h6>APT IT SOLUTIONS</h6>
+							<br>
+							<div class="cor">
+								<div class="spac">
+
+									<h5> <i class="fa-solid fa-phone"></i>&nbsp;&nbsp;+91 8712655800</h5>
+									<p class="conpara">
+
+								</div>
+
+
+								<div class="space">
+
+									<p><a href="mailto:info@aptits.com">
+											<div class="connect">
+												<h5> <i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;info@aptits.com
+												</h5>
+											</div>
+										</a></p>
+									<p class="conpara"></p>
+
+								</div>
+							</div>
+
+
+
+
+
+					</div>
+				</div><br><br>
+				<div class="row address">
+					<h3 class="footerrh3 one">OUR LOCATIONS</h3>
+					<div class="col-md-4 sim">
+						<ul class="footerservice">
+							<li class="corporate">
+								<h5>HYDERABAD :</h5>
+								<p>
+									3rd Floor, Sahithi Arcade, Besides SR Nagar Police Station, S R
+									Nagar, Hyderabad 500038,<br> INDIA. . E-mail:
+									info@aptits.com.
+								</p>
+							</li>
+
+							<li class="corporate">
+								<h5>BANGALORE:</h5>
+								<p>A A ARCADE" 2nd floor, Outer Ring Road Opp-Kala Mandir
+									service Road Landmark: Adjacent to AIRTEL office Marathahalli
+									Bengaluru 560037 Karnataka, INDIA.</p>
+							</li>
+
+						</ul>
+
+
+					</div>
+
+					<div class="col-md-4 sim">
+						<ul class="footerservice">
+
+							<li class="corporate">
+								<h5>VISAKHAPATNAM :</h5>
+								<p>
+									Door 48-7-70/1, Near Veg Market, NTR Statue, Ramatakies Down,
+									Srinagar, Visakhapatnam 530016, INDIA.
+								</p>
+							</li>
+
+							<li class="corporate">
+								<h5>CHENNAI:</h5>
+								<p>4th Floor, Main Building (Rear), Guna Complex, No.443 &
+									445, Anna Salai, Teynampet, Chennai 600018, INDIA.</p>
+
+							</li>
+						</ul>
+						<br>
+
+					</div>
+
+					<div class="col-md-4 sim">
+						<ul class="footerservice">
+							<li class="corporate">
+								<h5>PUNE:</h5>
+								<p>Office No: 301, 3rd Floor, Walchand House Happy Colony
+									Lane-1, Warje Malwadi Rd, Kothrud, Pune, Maharashtra 411038,
+									INDIA .</p>
+							</li>
+
+						</ul>
+						<br>
+
+					</div>
+					<div class="col-sm-4 simu">
+						<a href="/privacy" class="footanchor">Privacy Policy</a>
+					</div>
+					<div class="col-sm-4 simu">
+						<a href="/refund" class="footanchor">Refund Policy</a>
+					</div>
+					<div class="col-sm-4 simu">
+						<a href="/termsandcondition" class="footanchor">Terms&nbsp&nbspand&nbsp&nbspConditions</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!--LAST FOOTER -->
+		<div class="container-fluid" style="background-color: black; color: #fff;">
+			<div class="container">
+
+				<div class="row lastfooter">
+					<div class="col-sm-6" foot>
+						<p>© 2023 APT IT Solutions • All Rights Reserved</p>
+					</div>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
+	</div>
+
+	</a>
+
+<div id="galleryContainer"></div>
+<div id="previewContainer" style="display: none;">
+    <img id="previewImage" alt="Preview Image">
+    <h5 id="previewTitle"></h5>
+    <p id="previewDescription"></p>
+    <p id="previewLink" class="blink-link"></p>
+    <button onclick="closePreview()">Close Preview</button>
+</div>
+
+<script>
+    function openLink(linkUrl) {
+        // Check if the URL is not empty before navigating
+        if (linkUrl) {
+            // Open the link in a new tab
+            window.open(linkUrl, "_blank");
+        } else {
+            // Display an alert or handle it in a way that suits your application
+            alert("No link provided!");
+        }
+    }
+
+    const galleryContainer = document.getElementById("galleryContainer");
+
+    fetch("/imageapi/All")
+        .then(response => response.json())
+        .then(data => {
+            if (Array.isArray(data)) {
+                data.forEach((imageData, index) => {
+                    const imageContainer = document.createElement("div");
+                    imageContainer.classList.add("image-container");
+
+                    const titleElement = document.createElement("h5");
+                    titleElement.textContent = imageData.title;
+
+                    const imageElement = document.createElement("img");
+                    imageElement.src = `data:image/jpeg;base64,${imageData.image}`;
+                    imageElement.style.width = '400px';
+                    imageElement.style.height = '250px';
+
+                    const descriptionElement = document.createElement("p");
+                    descriptionElement.textContent = imageData.description;
+
+                    // New element for link
+                    const linkElement = document.createElement("p");
+
+                    if (imageData.link) {
+                        const linkAnchor = document.createElement("a");
+                        linkAnchor.href = imageData.link;
+                        linkAnchor.textContent = imageData.link;
+                        linkAnchor.className = "blink-link"; // Apply the "blink-link" class
+                        linkAnchor.onclick = function (event) {
+                            event.preventDefault();
+                            openLink(imageData.link);
+                        };
+
+                        linkElement.textContent = "Link: ";
+                        linkElement.appendChild(linkAnchor);
+                    }
+
+                    imageContainer.appendChild(titleElement);
+                    imageContainer.appendChild(imageElement);
+                    imageContainer.appendChild(descriptionElement);
+                    if (imageData.link) {
+                        imageContainer.appendChild(linkElement); // Append link
+                    }
+
+                    // Attach click event for image preview
+                    imageContainer.addEventListener("click", () => openPreview(imageData));
+
+                    galleryContainer.appendChild(imageContainer);
+                });
+            }
+        });
+
+    function openPreview(data) {
+        const previewContainer = document.getElementById("previewContainer");
+        const previewImage = document.getElementById("previewImage");
+        const previewTitle = document.getElementById("previewTitle");
+        const previewDescription = document.getElementById("previewDescription");
+        const previewLink = document.getElementById("previewLink");
+
+        previewImage.src = `data:image/jpeg;base64,${data.image}`;
+        previewTitle.textContent = data.title;
+        previewDescription.textContent = data.description;
+
+        if (data.link) {
+            previewLink.textContent = `Link: ${data.link}`;
+        } else {
+            previewLink.textContent = ""; // Clear the content if no link is provided
+        }
+
+        previewContainer.style.display = "flex";
+    }
+
+    function closePreview() {
+        const previewContainer = document.getElementById("previewContainer");
+        const previewImage = document.getElementById("previewImage");
+        const previewTitle = document.getElementById("previewTitle");
+        const previewDescription = document.getElementById("previewDescription");
+        const previewLink = document.getElementById("previewLink");
+
+        // Clear the content when closing
+        previewImage.src = "";
+        previewTitle.textContent = "";
+        previewDescription.textContent = "";
+        previewLink.textContent = "";
+
+        previewContainer.style.display = "none";
+    }
+</script>
+
+  <script>
+    // Change navbar styles on scrolling
+    window.addEventListener('scroll', () => {
+      document.querySelector('nav').classList.toggle('window-scroll', window.scrollY > 0);
+      document.getElementById("mananav").style.display = "none";
+    });
+
+    const toTop = document.querySelector(".to-top");
+
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > 100) {
+        toTop.classList.add("active");
+      } else {
+        toTop.classList.remove("active");
+      }
+    });
+  </script>
+	
+
+</body>
+
+</html>

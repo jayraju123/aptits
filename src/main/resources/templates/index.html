@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APT IT SOLUTIONS</title>
+<link rel="stylesheet" th:href="@{/css/style.css}" type="text/css">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+	crossorigin="anonymous">
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+	integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+	crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>(function(w, d) { w.CollectId = "652232f8df70161214ca9c0b"; var h = d.head || d.getElementsByTagName("head")[0]; var s = d.createElement("script"); s.setAttribute("type", "text/javascript"); s.async=true; s.setAttribute("src", "https://collectcdn.com/launcher.js"); h.appendChild(s); })(window, document);</script>
+
+<!--ICONS LINK-->
+<link rel="stylesheet" href="https://kit.fontawesome.com/fafd4002bd.css"
+	crossorigin="anonymous">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+
+
+
+
+
+<style>
+.navbar-brand {
+	width: 20%;
+}
+
+.navbar-brand img {
+	width: 56%;
+	height: 80px;
+}
+
+.button {
+	width: 130px;
+	background-color: transparent;
+	/* Set the background color to transparent */
+	margin-right: -10px;
+	border: 2px solid fff; /* Add an outline using a border */
+	color: #fff; /* Text color to match the outline color */
+	padding: 10px; /* Add padding for better appearance */
+	cursor: pointer; /* Change cursor on hover to indicate interactivity */
+	transition: border-color 0.3s ease;
+	/* Smooth transition for the border color */
+	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+	/* Add box-shadow to the transition */
+	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+	/* Add box shadow to the button */
+}
+
+.button:hover {
+	border-color: #fff; /* Change outline color on hover */
+}
+
+.card.slideup:hover .card-img-top {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
+.card.slideup:hover .card-body {
+    background-color: #f0f0f0; /* Change the background color on hover */
+}
+
+
+</style>
+
+
+<link rel="icon" href="images/im.jpg;" type="image/x-icon">
+</head>
+<body>
+	<div class="fixed">
+		<ul class="topnav">
+
+			<li><a
+				href="https://www.facebook.com/profile.php?id=100090510473876"><i
+					class="fa-brands fa-facebook"></i></a></li>
+			<li><a href="https://wa.me/+918712655800"><i
+					class="fa-brands fa-whatsapp"></i></a></li>
+			<li><a href="https://www.instagram.com/aptit_solutions/"><i
+					class="fa-brands fa-instagram"></i></a></li>
+			<li><a href="https://employers.indeed.com/messages?hl=en&co=IN"><i
+					class="fa-brands fa-linkedin"
+					style="margin-top: 0px; background-color: blue"></i></a></li>
+			<li><a href="https://twitter.com/info_Aptits"><i
+					class="fa-brands fa-twitter"></i></a></li>
+			<li><a
+				href="https://www.youtube.com/channel/UC91-ZPPRaaH98GkE10AAhcg">
+					<img src="images/you.jpg" alt="YouTube Image"
+					style="width: 32px; height: 30px; margin-top: s0px;">
+
+			</a></li>
+
+
+
+		</ul>
+	</div>
+
+	<div class="mananav">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10">
+					<span class="callnow">
+						<div class="naree">
+							<marquee width="100%">We transform businesses of most
+								major sectors with powerful and adaptable digital solutions that
+								satisfy the needs of today.</marquee>
+						</div> <br> <br>
+					</span>
+				</div>
+				<div class="col-md-2">
+					<a href="/adminlogin"><button class="login" hidden>Login
+							Here</button></a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+
+	<div class="main">
+
+		<nav class="navbar navbar-expand-lg navbar-light fixed-top"
+			style="background-color: rgb(15, 66, 88);">
+			<div class="container-fluid">
+				<a class="navbar-brand" href="index"> <img src="images/im.jpg"
+					style="width: 130px; height: 80px; border-radius: 8px" alt="...">
+				</a>
+				<button class="navbar-toggler" type="button"
+					data-bs-toggle="collapse" data-bs-target="#navbarNav"
+					aria-controls="navbarNav" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNav">
+					<ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="nav-list">
+						<li class="nav-item"><a class="nav-link" style="color: white"
+							href="/index">Home</a></li>
+						<li class="nav-item"><a class="nav-link" style="color: white"
+							href="/aboutUs">About Us</a></li>
+
+						<!-- <li class="nav-item"><a class="nav-link" style="color:white" href="/training">Trainings</a>
+						</li> -->
+						<li class="nav-item"><a class="nav-link" style="color: white"
+							href="/service">Services</a></li>
+						<li class="nav-item"><a class="nav-link" style="color: white"
+							href="/solution">Solutions</a></li>
+						<li class="nav-item"><a class="nav-link" style="color: white"
+							href="/products">Products</a></li>
+						<li class="nav-item"><a class="nav-link" href="/download">Downloads</a>
+						</li>
+						<li class="nav-item"><a class="nav-link" style="color: white"
+							href="/news">News&Events</a></li>
+
+						<li class="nav-item"><a class="nav-link" style="color: white"
+							href="/careers">Careers</a></li>
+
+						<li class="nav-item"><a class="nav-link" style="color: white"
+							href="/gallery">Gallery</a></li>
+						<li class="nav-item"><a class="nav-link" style="color: white"
+							href="/contact">Contact Us</a></li>
+
+
+						<a href="https://pages.razorpay.com/pl_HXd33LMenKYL2Q/view"><button
+								class="button">Client Payment</button></a>
+					</ul>
+				</div>
+			</div>
+		</nav>
+
+	</div>
+
+
+
+	<div class="container">
+		<div class="row myhead">
+			<div class="col-lg-6">
+				<div class="content">
+					<div class="mahesh">
+						<div class="apt">
+							<h6>APT IT SOLUTIONS</h6>
+						</div>
+						<h2 class="techno">Technology and IT</h2>
+
+						<span class="sollu">Solutions</span><br>
+					</div>
+				
+					<br> <br>
+					<div class="buttons">
+						<a href="/service"><button class="serbtn">Services</button></a>&nbsp;&nbsp;
+						<span><a
+							href="https://www.youtube.com/channel/UC91-ZPPRaaH98GkE10AAhcg"><i
+								class="fa-solid fa-play"></i></a></span>&nbsp;&nbsp;
+					</div>
+				</div>
+
+			</div>
+			<div class="col-lg-6 imghead"></div>
+		</div>
+	</div>
+
+	</div>
+
+
+
+
+	<!--Service section-->
+	<div class="container-fluid"
+		style="margin-top: 50px; margin-bottom: 50px;">
+		<h1 class="servicess">Services</h1>
+		<img src="images/under-heading.png" alt="" class="unhead" width="80%"
+			height="100%">
+	</div>
+	
+	
+	
+	<div class="container servicerow ">
+		<div class="row service">
+			<div class="col-md-4 ">
+				<div class="card slideup">
+					<a href="/web"><img src="images/11111.png"
+						class="card-img-top serviceimg"></a> <a href="/web">
+						<div class="card-body body">
+							<h6 class="card-title">WebApp Development</h6>
+					</a>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="col-md-4 columns">
+			<div class="card slideup">
+				<a href="/wedesign"><img src="images/22222.png"
+					class="card-img-top serviceimg"></a>
+				<div class="card-body body">
+					<a href="/wedesign">
+						<h6 class="card-title">Web Design Development</h6>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4 columns">
+			<div class="card slideup">
+				<a href="/ecommerce"><img src="images/33333.png"
+					class="card-img-top serviceimg"></a>
+				<div class="card-body">
+					<a href="/ecommerce">
+						<h6 class="card-title">E-Commerce Development</h6>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card slideup">
+				<a href="/hr"><img src="images/hrr.jpg"
+					class="card-img-top serviceimg"></a>
+				<div class="card-body">
+					<a href="/hr">
+						<h6 class="card-title">Hr Consultancy</h6>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card slideup">
+				<a href="/digital"><img src="images/digi.jpeg"
+					class="card-img-top serviceimg"></a>
+				<div class="card-body">
+					<a href="/digital">
+						<h6 class="card-title">Digital Marketing</h6>
+					</a>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-4">
+			<div class="card slideup">
+				<a href="/business"><img src="images/word.jpeg"
+					class="card-img-top serviceimg"></a>
+				<div class="card-body">
+					<a href="/business">
+						<h6 class="card-title">WordPress Web Development</h6>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+
+	<!--    <div class="row">
+        <div class="col-md-4">
+            <div class="card slideup">
+                <a href="/wedesign"><img src="images/web design.webp" class="card-img-top serviceimg"></a>
+                <div class="card-body">
+                    <h6 class="card-title">WEB DESIGN AND DEVELOPMENT</h6>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card slideup">
+                <a href="/business"><img src="images/BAW.jpg" class="card-img-top serviceimg"></a>
+                <div class="card-body">
+                    <h6 class="card-title">BUSINESS ANALYST WORKSHOP</h6>
+                </div> -->
+	</div>
+	</div>
+	<!--    <div class="col-md-4">
+            <div class="card slideup">
+                <a href="/business"><img src="images/BAW.jpg" class="card-img-top serviceimg"></a>
+                <div class="card-body">
+                    <h6 class="card-title">BUSINESS ANALYST WORKSHOP</h6>
+                </div>
+            </div>
+        </div>
+    </div> -->
+	</div>
+
+	<br>
+	<br>
+
+	<script>
+    $(document).ready(function() {
+        // Function to check if an element is in the viewport
+        function isElementInViewport(el) {
+            var rect = el.getBoundingClientRect();
+            return (
+                rect.top >= 0 &&
+                rect.left >= 0 &&
+                rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+
+        // Function to add the slide-up class when the element is in the viewport
+        function animateOnScroll() {
+            $(".slideup").each(function() {
+                if (isElementInViewport(this)) {
+                    $(this).addClass("slide");
+                }
+            });
+        }
+
+        // Initial check when the page loads
+        animateOnScroll();
+
+        // Check again when the user scrolls
+        $(window).scroll(function() {
+            animateOnScroll();
+        });
+    });
+</script>
+
+	<div class="clients">
+		<h3>Our Clients</h3>
+	</div>
+
+	<div class="container-fluid logosss">
+		<div class="marquee-container">
+			<div class="marquee">
+				<img src="images/anci.jpg" alt="Image 1" class="img-thumbnail">
+				<img src="images/bhasanu.png" alt="Image 2" class="img2-thumbnail">
+				<img src="images/un tech.webp" alt="Image 3" class="img6-thumbnail">
+				<img src="images/bml.jpg" alt="Image 3" class="img-thumbnail">
+
+				<img src="images/cam.png" alt="Image 3" class="img-thumbnail">
+				<img src="images/circle.jpg" alt="Image 3" class="img-thumbnail">
+				<img src="images/exce.png" alt="Image 3" class="img4-thumbnail">
+				<img src="images/millet.png" alt="Image 3" class="img4-thumbnail">
+				<img src="images/pink.jpg" alt="Image 3" class="img-thumbnail">
+				<img src="images/sun.png" alt="Image 3" class="img-thumbnail">
+				<img src="images/uking.png" alt="Image 3" class="img3-thumbnail">
+
+				<img src="images/vivi.jpg" alt="Image 3" class="img5-thumbnail">
+				<img src="images/yoshita.png" alt="Image 3" class="img5-thumbnail">
+				<img src="images/va.png" alt="Image 3" class="img5-thumbnail">
+				<!-- Add more images as needed -->
+			</div>
+		</div>
+	</div>
+	<br>
+	<br>
+	<br>
+	<script>
+        // Get all the image elements with class 'img-thumbnail'
+        const images = document.querySelectorAll('.img-thumbnail');
+
+        // Add event listeners to pause and resume the animation
+        images.forEach(image => {
+            image.addEventListener('mouseenter', () => {
+                document.querySelector('.marquee').style.animationPlayState = 'paused';
+            });
+
+            image.addEventListener('mouseleave', () => {
+                document.querySelector('.marquee').style.animationPlayState = 'running';
+            });
+        });
+    </script>
+
+
+
+	<div class="container-fluid footer" style="background-color: #000048;">
+		<div class="container">
+			<div class="row" style="color: #fff;">
+
+				<div class="col-md-4 simm">
+					<h3 class="footerh3">COMPANY</h3>
+					<ul class="footerservice">
+						<li><a href="/index"><h5>
+									<i class="fa fa-angle-right"></i>&nbsp;&nbsp;HOME
+								</h5></a></li>
+						<li><a href="/aboutUs"><h5>
+									<i class="fa fa-angle-right"></i>&nbsp;&nbsp;ABOUT US
+								</h5></a></li>
+						<li><a href="/careers"><h5>
+									<i class="fa fa-angle-right"></i>&nbsp;&nbsp;CAREERS
+								</h5></a></li>
+
+					</ul>
+
+				</div>
+
+				<div class="col-md-4 simm">
+					<h3 class="footerh3">OUR SERVICES</h3>
+					<ul class="footerservice">
+						<li><a href="/service"><h5>
+									<i class="fa fa-angle-right"></i>&nbsp;&nbsp;SERVICES
+								</h5></a></li>
+						<li><a href="/solution"><h5>
+									<i class="fa fa-angle-right"></i>&nbsp;&nbsp;SOLUTIONS
+								</h5></a></li>
+						<li><a href="/products"><h5>
+									<i class="fa fa-angle-right"></i>&nbsp;&nbsp;PRODUCTS
+								</h5></a></li>
+					</ul>
+
+				</div>
+
+				<div class="col-md-4 simm">
+					<h3 class="footerh3">CONTACT INFO</h3>
+					<ul class="footerservice">
+						<h6>APT IT SOLUTIONS</h6>
+						<br>
+						<div class="cor">
+							<div class="spac">
+
+								<h5>
+									<i class="fa-solid fa-phone"></i>&nbsp;&nbsp;+91 8712655800
+								</h5>
+								<p class="conpara">
+							</div>
+
+
+							<div class="space">
+
+								<p>
+									<a href="mailto:info@aptits.com"><div class="connect">
+											<h5>
+												<i class="fa-solid fa-envelope"></i>&nbsp;&nbsp;info@aptits.com
+											</h5>
+										</div></a>
+								</p>
+								<p class="conpara"></p>
+
+							</div>
+						</div>
+				</div>
+			</div>
+			<br> <br>
+			<div class="row address">
+				<h3 class="footerrh3 one">OUR LOCATIONS</h3>
+				<div class="col-md-4 sim">
+					<ul class="footerservice">
+						<li class="corporate">
+							<h5>HYDERABAD :</h5>
+							<p>
+								3rd Floor, Sahithi Arcade, Besides SR Nagar Police Station, S R
+								Nagar, Hyderabad 500038,<br> INDIA. . E-mail:
+								info@aptits.com.
+							</p>
+						</li>
+
+						<li class="corporate">
+							<h5>BANGALORE:</h5>
+							<p>A A ARCADE" 2nd floor, Outer Ring Road Opp-Kala Mandir
+								service Road Landmark: Adjacent to AIRTEL office Marathahalli
+								Bengaluru 560037 Karnataka, INDIA.</p>
+						</li>
+
+					</ul>
+
+
+				</div>
+
+				<div class="col-md-4 sim">
+					<ul class="footerservice">
+
+						<li class="corporate">
+							<h5>VISAKHAPATNAM :</h5>
+							<p>Door 48-7-70/1, Near Veg Market, NTR Statue, Ramatakies
+								Down, Srinagar, Visakhapatnam 530016, INDIA.</p>
+						</li>
+
+						<li class="corporate">
+							<h5>CHENNAI:</h5>
+							<p>4th Floor, Main Building (Rear), Guna Complex, No.443 &
+								445, Anna Salai, Teynampet, Chennai 600018, INDIA.</p>
+
+						</li>
+					</ul>
+					<br>
+
+				</div>
+
+				<div class="col-md-4 sim">
+					<ul class="footerservice">
+						<li class="corporate">
+							<h5>PUNE:</h5>
+							<p>Office No: 301, 3rd Floor, Walchand House Happy Colony
+								Lane-1, Warje Malwadi Rd, Kothrud, Pune, Maharashtra 411038,
+								INDIA .</p>
+						</li>
+
+					</ul>
+					<br>
+
+				</div>
+				<div class="col-sm-4 simu">
+					<a href="/privacy" class="footanchor">Privacy Policy</a>
+				</div>
+				<div class="col-sm-4 simu">
+					<a href="/refund" class="footanchor">Refund Policy</a>
+				</div>
+				<div class="col-sm-4 simu">
+					<a href="/termsandcondition" class="footanchor">Terms&nbsp&nbspand&nbsp&nbspConditions</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--LAST FOOTER -->
+	<div class="container-fluid"
+		style="background-color: black; color: #fff;">
+		<div class="container">
+
+			<div class="row lastfooter">
+				<div class="col-sm-6" foot>
+					<p>© 2023 APT IT Solutions • All Rights Reserved</p>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+	<script>
+    //Change navbar styles on scrolling
+window.addEventListener('scroll', () =>{
+    document.querySelector('nav').classList.toggle
+    ('window-scroll', window.scrollY > 0)
+    document.getElementById("mananav").style.display="none";
+    
+})
+
+    const toTop = document.querySelector(".to-top");
+  
+    window.addEventListener("scroll", ()=>{
+      if(window.pageYOffset > 100){
+        toTop.classList.add("active");
+      }
+      else{
+        toTop.classList.remove("active");
+      }
+    })
+  </script>
+
+
+
+
+
+	<script src="index.js" type="text/script"></script>
+</body>
+</html>
